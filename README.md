@@ -2,7 +2,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="[https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png](https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png)">
   <source media="(prefers-color-scheme: light)" srcset="[https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png](https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png)">
-  <img alt="Shows an illustrated boat with the title of the work." srcset="[https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png](https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png)"">
+  <img alt="Shows an illustrated boat with the title of the work." src="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png?token=GHSAT0AAAAAAB7Z5UT7737N3ZFIOV4XBWWUZAKBHFQ">
 </picture>
 
 ## 👨‍💻 | ABOUT OUR

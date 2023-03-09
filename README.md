@@ -2,7 +2,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/Portadas%20para%20Twitter%20Día%20de%20la%20Tierra%20fotografía%20planeta%20y%20Luna%20desde%20el%20espacio%20fondo%20azul.png?token=GHSAT0AAAAAAB7Z5UT6IND4INRGOIP5OFBMZAKAWPQ">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/Portadas%20para%20Twitter%20Día%20de%20la%20Tierra%20fotografía%20planeta%20y%20Luna%20desde%20el%20espacio%20fondo%20azul.png?token=GHSAT0AAAAAAB7Z5UT6IND4INRGOIP5OFBMZAKAWPQ">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/Portadas%20para%20Twitter%20Día%20de%20la%20Tierra%20fotografía%20planeta%20y%20Luna%20desde%20el%20espacio%20fondo%20azul.png?token=GHSAT0AAAAAAB7Z5UT6IND4INRGOIP5OFBMZAKAWPQ">
+  <img alt="Shows an illustrated boat with the title of the work." src="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/Portadas%20para%20Twitter%20Día%20de%20la%20Tierra%20fotografía%20planeta%20y%20Luna%20desde%20el%20espacio%20fondo%20azul.png?token=GHSAT0AAAAAAB7Z5UT6IND4INRGOIP5OFBMZAKAWPQ">
 </picture>
 
 ## 👨‍💻 | ABOUT OUR

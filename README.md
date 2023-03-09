@@ -13,7 +13,7 @@
  - Carlos Rivero Talavera
  - Silvia Roldán Flores
  
- ## 👨‍💻 | SOME TECHNOLOGIES I USE
+ ## 👨‍💻 | SOME TECHNOLOGIES WE USE
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
   <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white ">

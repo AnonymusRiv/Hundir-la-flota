@@ -14,6 +14,7 @@
  - Silvia Roldán Flores
  
  ## 👨‍💻 | SOME TECHNOLOGIES WE USE
+ <!--- 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
   <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white ">
@@ -33,7 +34,8 @@
 </picture>
 
 <picture>
- <!---  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white">
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white">
   <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white">
-  <img alt="" src="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white"> --!>
+  <img alt="" src="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white"> 
 </picture>
+--!>

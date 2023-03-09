@@ -1,4 +1,4 @@
-# GRUPO 4 - 👋
+# GRUPO 4. Hundir la Flota.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/90795270/201412680-0ecfe068-ba29-46fd-a761-46df51614e40.png">
   <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/90795270/201412680-0ecfe068-ba29-46fd-a761-46df51614e40.png">

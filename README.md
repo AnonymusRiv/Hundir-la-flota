@@ -1,6 +1,6 @@
 # GRUPO 4. Hundir la Flota.
 <picture>
-  <img alt="Shows an illustrated boat with the title of the work." src="[https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png?token=GHSAT0AAAAAAB7Z5UT7737N3ZFIOV4XBWWUZAKBHFQ](https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png?token=GHSAT0AAAAAAB653G2WEN474NHAQ4PQTVPKZBFTNOQ)">
+  <img alt="Shows an illustrated boat with the title of the work." src="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png?token=GHSAT0AAAAAAB653G2WEN474NHAQ4PQTVPKZBFTNOQ">
 </picture>
 
 ## 👨‍💻 | ABOUT OUR

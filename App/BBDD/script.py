@@ -25,7 +25,7 @@ cur.execute("CREATE TABLE IF NOT EXISTS game (id serial PRIMARY KEY, user_id var
 
 #Inserting a test user
 #cur.execute("INSERT INTO Usuario (email, name, surname, type, birthday, password) values (%s, %s, %s, %s, %s, %s)", ("i02perlr@uco.es", "Rafael", "Pérez López", "admin", "2002-08-15", "123456789"))
-cur.execute()
+cur.execute("INSERT INTO game (id, user_id, numberClicksSucces, numberClicksTotal, win) values (%s, %s, %s, %s, %s)", ("1", "i02perlr@uco.es", "32", "45", "True"))
 
 
 cur.execute("SELECT * FROM usuario")

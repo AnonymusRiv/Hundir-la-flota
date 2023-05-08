@@ -3,7 +3,7 @@
   <img alt="Shows an illustrated boat with the title of the work." src="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png">
 </picture>
 
-## 👨‍💻 | ABOUT OUR
+## 👨‍💻 | ABOUT US
  - Antonio Jiménez Jiménez
  - Gonzalo Márquez De Torres
  - Alba Palomino Jiménez

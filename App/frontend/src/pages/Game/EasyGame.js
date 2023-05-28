@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-export const BOARD_ROWS = 15;
-export const BOARD_COLUMNS = 15;
+export const BOARD_ROWS = 10;
+export const BOARD_COLUMNS = 10;
 export const BOARD = BOARD_COLUMNS * BOARD_ROWS;
 
 export const SQUARE_STATE = {

@@ -14,8 +14,8 @@ export default function RouteProvider(){
         <Routes>
             <Route path="*" exact element={<WelcomeScreen />} />
             <Route path="/" element={<WelcomeScreen />} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/SignUp/" element={<SignUp />} />
+            <Route path="/SignIn/" element={<SignIn />} />
             <Route path="/Game">
                 <Route path="/Game/:game" element={<GameSelect />} />
                 <Route path="/Game/Support" element={<Support />} />

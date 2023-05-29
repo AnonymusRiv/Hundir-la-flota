@@ -1,40 +1,48 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
+from django.shortcuts import render
 from django.contrib import messages
 from .models import *
 from .querys import *
+import json
+
 
 # Create your views here.
 def home(request):
     return render(request, "index.html")
 
-def register_user(request):
+def register(request):
     if request.method == 'POST':
-        name1 = request.POST.get['name']
-        #surname = request.POST['surname']
-        email = request.POST.get['email']
-        password = request.get['password']
+        body = json.loads(request.body)
+        email = body.get('email')
+        name = body.get('name')
+        password = body.get('password')
+    
+        registerFunction(name, email, password)
 
-        registerFunction(name1, email, password)
-
-        return render(request, 'index.html')
+        return render(request, "index.html")
 
     else:
         return render(request, "index.html")
 
 def login_user(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
+        body = json.loads(request.body)
+        email = body.get('email')
+        password = body.get('password')
 
         user = loginFunction(email, password)
+        
         if user:
-            return redirect('index.html')
+             #game() # Redirecciona a la URL Game/SelectGame
+            return redirect("../Game/GameSelect")
         else:
             messages.info(request, 'Invalid Email or Password')
-            return redirect('index.html')
-
+            return render(request, "index.html")
+        
     return render(request, "index.html")
 
 def logout_user(request):
-
     return redirect('index.html')
+
+def game():
+    return redirect('Game/GameSelect')

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import ErrorMessageExample from './Components/Custom-form-user';
 import PasswordInput from './Components/Custom-form-pass';
 import CustomFormName from './Components/Custom-form-name';
-import axios from 'axios'
-import Cookies from 'js-cookie'
+import axios from 'axios';
 
 export const SignUp = () => {
   const [name, setName] = useState('');
@@ -14,12 +13,10 @@ export const SignUp = () => {
     event.preventDefault();
 
     try {
-      const csrftoken = Cookies.get('csrftoken');
-      const response = await axios.post('', { name, email, password }, {
+      const response = await fetch('http://localhost:8000/SignUp/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRFToken': csrftoken,
         },
         body: JSON.stringify({ name, email, password }),
       });
@@ -27,6 +24,7 @@ export const SignUp = () => {
         // La solicitud se completó correctamente
         // Aquí puedes realizar alguna acción, como redirigir a otra página
         console.log('Registro exitoso');
+        window.location.href = 'http://localhost:8000/'; // Redirecciona a localhost:8000/
       } else {
         // La solicitud falló
         // Aquí puedes manejar el error de alguna manera
@@ -47,19 +45,19 @@ export const SignUp = () => {
           <div className="Auth-form-input">
             <label>Nombre</label>
             <br />
-            <CustomFormName />
+            <CustomFormName setName={setName} />
           </div>
           <br />
           <div className="Auth-form-input">
             <label>Email</label>
             <br />
-            <ErrorMessageExample />
+            <ErrorMessageExample setEmail={setEmail} />
           </div>
-          <br />  
+          <br />
           <div className="Auth-form-input">
             <label>Contraseña</label>
-            <br />  
-            <PasswordInput />
+            <br />
+            <PasswordInput setPassword={setPassword} />
           </div>
           <div>
             <button type="submit" className="sign">
@@ -73,4 +71,3 @@ export const SignUp = () => {
 };
 
 export default SignUp;
-

@@ -16,7 +16,7 @@ export default function PasswordInput() {
   
     return (
       <FormControl isInvalid={isError}>
-        <Input type='password' value={input} onChange={handleInputChange} />
+        <Input name="password" type='password' value={input} onChange={handleInputChange} />
         {!isError ? (
           <FormHelperText>
             Enter the email you'd like to receive the newsletter on.

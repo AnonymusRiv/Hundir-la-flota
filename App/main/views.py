@@ -7,14 +7,14 @@ from .querys import *
 def home(request):
     return render(request, "index.html")
 
-def register(request):
+def register_user(request):
     if request.method == 'POST':
-        name = request.POST['name']
+        name1 = request.POST.get['name']
         #surname = request.POST['surname']
-        email = request.POST['email']
-        password = request.POST['password']
+        email = request.POST.get['email']
+        password = request.get['password']
 
-        registerFunction(name, email, password)
+        registerFunction(name1, email, password)
 
         return render(request, 'index.html')
 

@@ -16,7 +16,7 @@ function CustomFormName() {
   
     return (
       <FormControl isInvalid={isError}>
-        <Input value={input} onChange={handleInputChange} />
+        <Input name="name" value={input} onChange={handleInputChange} />
         {!isError ? (
           <FormHelperText>
             Enter the email you'd like to receive the newsletter on.

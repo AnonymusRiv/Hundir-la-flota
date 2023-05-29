@@ -8,6 +8,7 @@ param = {
     "database": "postgres"
 }
 
+#Query to insert user data in BD
 def registerFunction(name, email, password):
     connection = psycopg2.connect(**param)
     cur = connection.cursor()
@@ -16,6 +17,7 @@ def registerFunction(name, email, password):
     connection.commit()
     connection.close()
 
+#Query to check user validation
 def loginFunction(email, password):
     connection = psycopg2.connect(**param)
     cur = connection.cursor()
@@ -25,3 +27,24 @@ def loginFunction(email, password):
     connection.commit()
     connection.close()
     return user
+
+#Query to receive all stats info
+def obtainStadisticsFunction(email):
+    connection = psycopg2.connect(**param)
+    cur = connection.cursor()
+    cur.execute("SELECT * FROM game WHERE user_id = %s", (email))
+    stats = cur.fetchall()
+    cur.close()
+    connection.commit()
+    connection.close()
+    return stats
+
+#Query to obtain all user info
+def obtainUserInformation():
+    connection = psycopg2.connect(**param)
+    cur = connection.cursor()
+    cur.execute("SELECT * FROM usuario")
+    info = cur.fetchall()
+    connection.commit()
+    connection.close()
+    return info

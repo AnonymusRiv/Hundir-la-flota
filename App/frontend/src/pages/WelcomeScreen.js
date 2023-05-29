@@ -30,8 +30,8 @@ function WelcomeScreen() {
     <main>
       <InfoGame />
       <div className= "margen">
-        <NavLink to= "/SignUp"> <button className="User">Regístrate</button> </NavLink>
-        <NavLink to= "/SignIn"> <button className="User">Iniciar Sesión</button> </NavLink>
+        <NavLink to= "/SignUp/"> <button className="User">Regístrate</button> </NavLink>
+        <NavLink to= "/SignIn/"> <button className="User">Iniciar Sesión</button> </NavLink>
       </div>
         <NavLink to= "/Game/GameSelect"> <button className="Jugar">Jugar</button> </NavLink>
     </main>

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from 'react';
+import Datos from './../Components/Perfil';
 
-function Profile(){
-    return(
-        <div>
-            <h1>Profile</h1>
-        </div>
+export const Profile  = () => {
+    return (
+      <div>
+        <h3 className="Auth-form-title">Profile</h3>
+            <Perfil name="John" surname="Doe" email="johndoe@example.com" />
+      </div>
     );
-}
+  };
 
-export default Profile;
+  export default Profile;

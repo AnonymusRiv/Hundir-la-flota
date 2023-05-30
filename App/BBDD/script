@@ -1,6 +1,0 @@
-
-CREATE TABLE Usuario(
-    id int NOT NULL,
-    name char() NOT NULL
-);
- 

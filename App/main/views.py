@@ -4,6 +4,9 @@ from django.contrib import messages
 from .models import *
 from .querys import *
 import json
+from django.http import JsonResponse
+
+
 
 
 # Create your views here.
@@ -17,10 +20,10 @@ def register(request):
         name = body.get('name')
         password = body.get('password')
     
-        registerFunction(name, email, password)
-
-        return render(request, "index.html")
-
+        if registerFunction(name, email, password) :
+            return JsonResponse({"valido": True})
+        else:
+            return JsonResponse({"falso": False})
     else:
         return render(request, "index.html")
 
@@ -30,19 +33,20 @@ def login_user(request):
         email = body.get('email')
         password = body.get('password')
 
-        user = loginFunction(email, password)
-        
-        if user:
-             #game() # Redirecciona a la URL Game/SelectGame
-            return redirect("../Game/GameSelect")
+        if user is not None:
+            loginFunction(email, password)
+
+            return JsonResponse({"valido": True})
         else:
-            messages.info(request, 'Invalid Email or Password')
-            return render(request, "index.html")
+            return JsonResponse({"falso": False})
         
     return render(request, "index.html")
 
 def logout_user(request):
     return redirect('index.html')
 
-def game():
-    return redirect('Game/GameSelect')
+def game(request):
+    return render(request, 'index.html')
+
+def error(request):
+    return render(request, "index.html")

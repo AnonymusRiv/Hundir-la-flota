@@ -10,7 +10,7 @@ export const SignIn = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/SignIn/', {
+      const response = await fetch("", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -18,10 +18,12 @@ export const SignIn = () => {
         body: JSON.stringify({ email, password }),
       });
       if (response.ok) {
-        // La solicitud se completó correctamente
-        // Aquí puedes realizar alguna acción, como redirigir a otra página
-        window.location.href = '/Game/GameSelect';
-  
+        const data = await response.json();
+        if (data.valido) {
+          console.log("Credenciales validas");
+          window.location.href = '/Game/GameSelect';
+        } else {
+          console.log("Credenciales inválidas");}
       } else {
         // La solicitud falló
         // Aquí puedes manejar el error de alguna manera

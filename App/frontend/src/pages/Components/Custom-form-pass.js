@@ -2,6 +2,7 @@ import { FormControl, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
 import { useState } from 'react';
 import { Input } from '@chakra-ui/react';
 
+
 export default function PasswordInput({ setPassword }) {
   const [input, setInput] = useState('');
 

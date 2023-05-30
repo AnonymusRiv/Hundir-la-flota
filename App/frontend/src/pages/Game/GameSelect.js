@@ -11,6 +11,15 @@ import {
 import { Box } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
 
+const handleLogout = () => {
+  window.location.href = "/";
+}
+
+const checkLogin = () => {
+  
+}
+
+
 class Navbar extends Component {
   render() {
     return (
@@ -24,7 +33,7 @@ class Navbar extends Component {
               </MenuButton>
               <MenuList>
                 <NavLink to="/Game/Profile"><MenuItem width='85%'>Mi perfil</MenuItem></NavLink>
-                <NavLink to="/"><MenuItem width='85%'>Cerrar sesión</MenuItem></NavLink>
+                <MenuItem width='85%'onClick={handleLogout}>Cerrar sesión</MenuItem>
                 <MenuDivider />
                 <NavLink to="/Game/Help"><MenuItem width='85%'>Ayuda</MenuItem></NavLink>
                 <NavLink to="/Game/Support"><MenuItem width='85%'>Soporte</MenuItem></NavLink>
@@ -37,11 +46,38 @@ class Navbar extends Component {
   }
 }
 
+class NavbarDefault extends Component {
+  render() {
+    return (
+      <Box className='boxMenu'>
+        <Menu>
+          {({ isOpen }) => (
+            <>
+            <Avatar className='avatar' size='sm' src='https://bit.ly/broken-link' />
+              <MenuButton as={Button} size='sm' colorScheme='gray' textColor='black' width='auto' isActive={isOpen} >
+                {isOpen ? 'Cerrar' : 'Usuario Invitado'}
+              </MenuButton>
+              <MenuList>
+                <NavLink to="/"><MenuItem width='85%'>Menú principal</MenuItem></NavLink>
+                <NavLink to="/Game/Help"><MenuItem width='85%'>Ayuda</MenuItem></NavLink>
+                <NavLink to="/Game/Support"><MenuItem width='85%'>Soporte</MenuItem></NavLink>
+              </MenuList>
+            </>
+          )}
+        </Menu>
+      </Box>
+    );
+  }
+}
+
 export const GameSelect = () => {
+  const [isLogged, setIsLogged] = React.useState(false);
+
+  checkLogin();
 
   return (
     <>
-    <Navbar />
+    {isLogged ? <Navbar /> : <NavbarDefault />}
     <SimpleGrid spacing={20} columns={2}>
     <Card align='center' maxW='lg'>
       <CardBody>
@@ -73,7 +109,7 @@ export const GameSelect = () => {
         </Stack>
       </CardBody>
       <CardFooter>
-        <button className='Dificil'>Comenzar</button>
+        <NavLink to="/Game/DifficultGame"><button className='Dificil'>Comenzar</button></NavLink>
       </CardFooter>
     </Card> 
   </SimpleGrid>

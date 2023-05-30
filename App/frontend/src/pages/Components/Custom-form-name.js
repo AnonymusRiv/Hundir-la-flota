@@ -17,11 +17,7 @@ function CustomFormName() {
     return (
       <FormControl isInvalid={isError}>
         <Input value={input} onChange={handleInputChange} />
-        {!isError ? (
-          <FormHelperText>
-            Enter the email you'd like to receive the newsletter on.
-          </FormHelperText>
-        ) : (
+        {!isError ? null : (
           <FormErrorMessage>Se requiere de un nombre de usuario</FormErrorMessage>
         )}
       </FormControl>

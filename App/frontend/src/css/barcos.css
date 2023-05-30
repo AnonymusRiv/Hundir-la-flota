@@ -14,7 +14,7 @@
     border-radius: 4px;
     margin-bottom: 10px;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
     color: #fff;
     font-weight: bold;
@@ -26,9 +26,4 @@
   
   .barco.vertical {
     width: 40px;
-  }
-  
-  .cuadrados-info {
-    font-size: 12px;
-    margin-top: 4px;
   }

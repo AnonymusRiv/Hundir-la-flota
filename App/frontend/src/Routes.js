@@ -8,6 +8,7 @@ import Support from "./pages/Game/Support";
 import Help from "./pages/Game/Help";
 import Profile from "./pages/Game/Profile";
 import EasyGame from "./pages/Game/EasyGame";
+import DifficultGame from "./pages/Game/DifficultGame";
 
 export default function RouteProvider(){
     return(
@@ -22,6 +23,7 @@ export default function RouteProvider(){
                 <Route path="/Game/Help" element={<Help />} />
                 <Route path="/Game/Profile" element={<Profile />} />
                 <Route path="/Game/EasyGame" element={<EasyGame />} />
+                <Route path="/Game/DifficultGame" element={<DifficultGame />} />
             </Route>
         </Routes>
     );

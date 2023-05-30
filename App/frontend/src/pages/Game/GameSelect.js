@@ -73,7 +73,7 @@ export const GameSelect = () => {
         </Stack>
       </CardBody>
       <CardFooter>
-        <button className='Dificil'>Comenzar</button>
+        <NavLink to="/Game/DifficultGame"><button className='Dificil'>Comenzar</button></NavLink>
       </CardFooter>
     </Card> 
   </SimpleGrid>

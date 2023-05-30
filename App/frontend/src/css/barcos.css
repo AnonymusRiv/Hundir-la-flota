@@ -1,0 +1,34 @@
+.barcos-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .barcos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .barco {
+    background-color: #333;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .barco.horizontal {
+    width: 40px;
+  }
+  
+  .barco.vertical {
+    width: 40px;
+  }
+  
+  .cuadrados-info {
+    font-size: 12px;
+    margin-top: 4px;
+  }

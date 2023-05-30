@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import Tablero from "../Components/Tablero";
 import Barcos from "../Components/Barcos";
-export const BOARD_ROWS = 10;
-export const BOARD_COLUMNS = 10;
-export const BOARD = BOARD_COLUMNS * BOARD_ROWS;
+export const BOARD_ROWS = 15;
+export const BOARD_COLUMNS = 15;
 
 export const SQUARE_STATE = {
     empty: 'empty',
@@ -15,10 +14,10 @@ export const SQUARE_STATE = {
     awaiting: 'awaiting',
 };
 
-function EasyGame() {
+function DifficultGame() {
     return (
         <>
-            <h1 align='center'>EasyGame</h1>
+            <h1 align='center'>DifficultGame</h1>
             <div className="tableros-container">
                 <div>
                     <Barcos />
@@ -34,4 +33,4 @@ function EasyGame() {
     );
 }  
 
-export default EasyGame;
+export default DifficultGame;

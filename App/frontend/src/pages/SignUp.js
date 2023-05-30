@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import ErrorMessageExample from './Components/Custom-form-user';
 import PasswordInput from './Components/Custom-form-pass';
 import CustomFormName from './Components/Custom-form-name';
+import CustomFormsurName from './Components/Custom-form-surname';
 import axios from 'axios';
 
 export const SignUp = () => {
   const [name, setName] = useState('');
+  const [surname, setsurName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,7 +20,7 @@ export const SignUp = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, surname, email, password }),
       });
       if (response.ok) {
         const data = await response.json();
@@ -48,6 +50,11 @@ export const SignUp = () => {
             <label>Nombre</label>
             <br />
             <CustomFormName setName={setName} />
+          </div>
+          <div className="Auth-form-input">
+            <label>Apellido</label>
+            <br />
+            <CustomFormsurName setSurname={setsurName} />
           </div>
           <br />
           <div className="Auth-form-input">

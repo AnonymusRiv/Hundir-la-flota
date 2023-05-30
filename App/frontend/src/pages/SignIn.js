@@ -46,10 +46,10 @@ export const SignIn = () => {
             <br />
             <ErrorMessageExample setEmail={setEmail}/>
           </div>
-          <br />  
+          <br />
           <div className="Auth-form-input">
             <label>Contraseña</label>
-            <br />  
+            <br />
             <PasswordInput setPassword={setPassword}/>
           </div>
           <div>

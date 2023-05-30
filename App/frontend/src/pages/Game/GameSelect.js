@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+
+
+import React, {Component, useState, useEffect} from 'react';
 import { Card, CardHeader, CardBody, CardFooter, Heading, Image, Stack, SimpleGrid, Button} from '@chakra-ui/react'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 import {
@@ -11,17 +13,28 @@ import {
 import { Box } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
 
-const handleLogout = () => {
-  window.location.href = "/";
-}
-
-const checkLogin = () => {
-  
-}
-
 
 class Navbar extends Component {
   render() {
+    const handleLogout = async () => {
+      try {
+        const response = await fetch("/SignOut/", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          window.location.href = "/";
+        } else {
+  
+        }
+      } catch (error) {
+        console.log('Error de red', error);
+      }
+    };
     return (
       <Box className='boxMenu'>
         <Menu>
@@ -73,8 +86,29 @@ class NavbarDefault extends Component {
 export const GameSelect = () => {
   const [isLogged, setIsLogged] = React.useState(false);
 
-  checkLogin();
+  const checkLogin = async () => {
+    try {
+      const response = await fetch("", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setIsLogged(data.valido);
+      } else {
+        console.log('Error al verificar el inicio de sesión');
+      }
+    } catch (error) {
+      console.log('Error de red', error);
+    }
+  };
 
+  React.useEffect(() => {
+    checkLogin();
+  }, []);
   return (
     <>
     {isLogged ? <Navbar /> : <NavbarDefault />}

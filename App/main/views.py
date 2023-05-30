@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
-
+aux = ""
 
 
 # Create your views here.
@@ -23,21 +23,16 @@ def register(request):
         name = body.get('name')
         password = body.get('password')
         surname = body.get('surname')
-    
-        user = User.objects.create_user(email=email, password=password, username=email)
-        
-        # Crear un objeto UserProfile relacionado
-        #profile = UserProfile(user=user, username=email)
-        #profile.save()
 
-        if registerFunction(name, email, password) :
+        user = User.objects.create_user(email=email, password=password, username=email, first_name=name, last_name=surname)
+
+        if user is not None :
+            login(request, user)
             return JsonResponse({"valido": True})
         else:
             return JsonResponse({"falso": False})
     else:
         return render(request, "index.html")
-
-
 
 def login_user(request):
     if request.method == 'POST':
@@ -45,26 +40,38 @@ def login_user(request):
         email = body.get('email')
         password = body.get('password')
 
-          # Autenticar al usuario
+        # Autenticar al usuario
         user = authenticate(request, username=email, password=password)
-        print(user)
         if user is not None:
-            print(user)
             # Iniciar sesión del usuario
             login(request, user)
             return JsonResponse({"valido": True})
         else:
             print("ERROR")
             return JsonResponse({"falso": False})
-        
+
     return render(request, "index.html")
 
 def logout_user(request):
-    logout(request)
-    return redirect('index.html')
+    if request.method == 'POST':
+        # Autenticar al usuario
+        if logout(request):
+            return JsonResponse({"valido": True})
+        else:
+            return JsonResponse({"falso": False})
+
+    return render(request, "index.html")
 
 def game(request):
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        # Autenticar al usuario
+        if request.user.is_authenticated:
+            return JsonResponse({"valido": True})
+        else:
+            return JsonResponse({"falso": False})
+
+    return render(request, "index.html")
+
 
 def error(request):
     return render(request, "index.html")

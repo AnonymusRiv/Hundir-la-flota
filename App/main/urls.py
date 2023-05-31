@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import home, register, login_user, logout_user, error, game
+from .views import home, register, login_user, logout_user, error, game, delete, showProfile
 from main import views
 
 urlpatterns = [
@@ -14,4 +14,6 @@ urlpatterns = [
     path("Game/GameSelect/Error", views.error),
     path("Game/Profile", views.home),
     path("Game/Support", views.home),
+    path("Game/Profile/", showProfile, name="showProfile"),
+    path("delete/", delete, name='delete'),
 ]

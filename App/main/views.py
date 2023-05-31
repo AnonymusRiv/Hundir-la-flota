@@ -6,9 +6,7 @@ from .querys import *
 import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
-
-aux = ""
+from django.contrib.auth import authenticate, login, logout, get_user_model
 
 
 # Create your views here.
@@ -74,4 +72,39 @@ def game(request):
 
 
 def error(request):
+    return render(request, "index.html")
+
+def showProfile(request):
+    if request.method == 'POST':
+        user = request.user
+        profile_data = {
+            'email' : user.email,
+            'name' : user.first_name,
+            'surname' : user.last_name,
+        }
+        return JsonResponse(profile_data)
+    return render(request, "index.html")
+
+def modify(request):
+    if request.method == 'POST':
+        User = get_user_model()
+        user = request.user
+        if user.is_authenticated:
+            new_data = request.POST.get('new_data')
+            user.data_field = new_data
+            user.save()
+            return JsonResponse({"valido": True})
+        else:
+            return JsonResponse({"falso": False})
+    return render(request, "index.html")
+
+def delete(request):
+    if request.method == 'POST':
+        User = get_user_model()
+        user = request.user
+        if user.is_authenticated:
+            user.delete()
+            return JsonResponse({"valido": True})
+        else:
+            return JsonResponse({"falso": False})
     return render(request, "index.html")

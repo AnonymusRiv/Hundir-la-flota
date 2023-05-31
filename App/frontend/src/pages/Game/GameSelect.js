@@ -29,7 +29,7 @@ class Navbar extends Component {
           const data = await response.json();
           window.location.href = "/";
         } else {
-  
+
         }
       } catch (error) {
         console.log('Error de red', error);

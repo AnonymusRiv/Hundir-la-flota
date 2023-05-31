@@ -54,7 +54,7 @@ export const SignUp = () => {
           <div className="Auth-form-input">
             <label>Apellido</label>
             <br />
-            <CustomFormsurName setSurname={setsurName} />
+            <CustomFormsurName setsurName={setsurName} />
           </div>
           <br />
           <div className="Auth-form-input">

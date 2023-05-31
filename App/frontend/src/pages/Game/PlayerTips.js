@@ -1,22 +1,25 @@
 import React from 'react';
 
-//Mensajes que se mostrarán en pantalla durante el juego
-export const PlayerMessages = ({
-  hitsByPlayer,
+function ExportsResults () {
+  
+}
+
+export const PlayerTips = ({
+  hitsbyPlayer,
   hitsByComputer,
   startAgain,
   winner,
 }) => {
-  let hits = hitsByPlayer.length;
-  let successfulHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
-  let score = Math.round(100 * (successfulHits / hits));
+  let numberOfHits = hitsbyPlayer.length;
+  let numberOfSuccessfulHits = hitsbyPlayer.filter((hit) => hit.type === 'hit').length;
   let succesfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit').length;
 
-  let gameOver = (
+  let gameOverPanel = (
     <div>
-      <div className="tip-box-title">Game Over </div>
+      <div className="tip-box-title">Game Over!</div>
       <p className="player-tip">
         {winner === 'player' ? 'You win! 🎉' : 'You lose 😭. Better luck next time! '}
+        
       </p>
       <p className="restart" onClick={startAgain}>
         Play again?
@@ -24,13 +27,13 @@ export const PlayerMessages = ({
     </div>
   );
 
-  let tips = (
+  let tipsPanel = (
     <div>
-      <div className="tip-box-title">📈 Estadísticas 📈</div>
+      <div className="tip-box-title">Stats</div>
       <div id="firing-info">
         <ul>
-          <li>{successfulHits} successful hits</li>
-          <li>{score > 0 ? `${score}%` : `0%`} accuracy </li>
+          <li>{numberOfSuccessfulHits} successful hits</li>
+          <li>{numberOfHits} hits</li>
         </ul>
         <p className="player-tip">The first to sink all 5 opponent ships wins.</p>
         <p className="restart" onClick={startAgain}>
@@ -42,9 +45,11 @@ export const PlayerMessages = ({
 
   return (
     <div id="player-tips">
-      {successfulHits === 17 || succesfulComputerHits === 17
-        ? gameOver
-        : tips}
+      {numberOfSuccessfulHits === 17 || succesfulComputerHits === 17
+        ? gameOverPanel
+        : tipsPanel}
     </div>
   );
 };
+
+export default PlayerTips;

@@ -1,14 +1,14 @@
 import React from 'react';
 
-export const ShipBox = ({
+export const ReplicaBox = ({
   shipName,
   selectShip,
   availableShips,
   isCurrentlyPlacing,
 }) => {
-  let ship = availableShips.find((ship) => ship.name === shipName);
+  let ship = availableShips.find((item) => item.name === shipName);
   let shipLength = new Array(ship.length).fill('ship');
-  let all = shipLength.map((index) => (
+  let allReplicaSquares = shipLength.map((item, index) => (
     <div className="small-square" key={index} />
   ));
 
@@ -20,7 +20,7 @@ export const ShipBox = ({
       className={isCurrentlyPlacing ? 'replica placing' : 'replica'}
     >
       <div className="replica-title">{shipName}</div>
-      <div className="replica-squares">{all}</div>
+      <div className="replica-squares">{allReplicaSquares}</div>
     </div>
   );
 };

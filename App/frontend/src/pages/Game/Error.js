@@ -1,12 +1,4 @@
 import React from "react";
-import {
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
-  } from '@chakra-ui/react'
-import { Box } from '@chakra-ui/react'
 
 function Help() {
     return (

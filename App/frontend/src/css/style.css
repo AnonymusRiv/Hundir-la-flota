@@ -198,27 +198,17 @@ button {
   background-color: var(--oc-green-5);
 }
 
-.backToGame{
-  color: #000000;
-  background-color: var(--oc-green-5);
-}
-
 .Facil {
-  background-color: var(--oc-green-8);
+  background-color: var(--oc-green-5);
 }
 
 .Dificil {
   background-color: var(--oc-red-7);
 }
 
-.modificar {
+.Modificar {
   background-color: var(--oc-orange-6);
-  color: #000000;
-}
-
-.borrar {
-  background-color: var(--oc-red-8);
-  color: #000000;
+  color: #ffffff;
 }
 
 .statistics{
@@ -226,6 +216,11 @@ button {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 16px;
   text-align: justify;
+}
+
+.bar {
+  background-color: var(--oc-gray-5);
+  border-radius: 5px;
 }
 
 button:hover {
@@ -328,7 +323,7 @@ label {
 }
 
 .boxMenu {
-  background-color: var(--oc-gray-6);
+  background-color: var(--oc-gray-5);
   align-items: right;
   justify-content: center;
   height: 3.7em;

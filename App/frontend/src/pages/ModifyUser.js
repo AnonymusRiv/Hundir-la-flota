@@ -58,6 +58,7 @@ export const ModifyUser = () => {
           </div>
           <br />
           <div>
+
             <button type="submit" className="sign">
               Modificar datos
             </button>
@@ -67,5 +68,6 @@ export const ModifyUser = () => {
     </div>
   );
 };
+
 
 export default ModifyUser;

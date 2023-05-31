@@ -1,7 +1,6 @@
-import { FormControl, FormErrorMessage, FormHelperText } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Input } from '@chakra-ui/react';
-
 
 export default function PasswordInput({ setPassword }) {
   const [input, setInput] = useState('');
@@ -16,11 +15,7 @@ export default function PasswordInput({ setPassword }) {
   return (
     <FormControl isInvalid={isError}>
       <Input name="password" type="password" value={input} onChange={handleInputChange} />
-      {!isError ? (
-        <FormHelperText>
-          Ingresa tu contraseña.
-        </FormHelperText>
-      ) : (
+      {!isError ? null : (
         <FormErrorMessage>Se requiere una contraseña</FormErrorMessage>
       )}
     </FormControl>

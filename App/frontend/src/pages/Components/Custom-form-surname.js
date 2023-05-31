@@ -1,23 +1,23 @@
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
+import { useState } from 'react'
 
-function CustomFormsurName({ setsurName }) {
-  const handleInputChange = (e) => setsurName(e.target.value);
+function CustomFormSurname({ setName }) {
+  const [input, setInput] = useState('');
 
-  const isError = Input === '';
+  const handleInputChange = (e) => setName(e.target.value);
+
+  const isError = input === '';
 
   return (
     <FormControl isInvalid={isError}>
-      <Input name="surname" onChange={handleInputChange} />
-      {!isError ? (
-        <FormHelperText>
-          Ingresa el apellido de usuario.
-        </FormHelperText>
-      ) : (
+      <Input value={input} name="surname" onChange={handleInputChange} />
+      {!isError ? null : (
         <FormErrorMessage>Se requiere un apellido de usuario</FormErrorMessage>
       )}
     </FormControl>
   );
 }
 
-export default CustomFormsurName;
+export default CustomFormSurname;
+

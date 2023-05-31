@@ -65,6 +65,9 @@ function Question5 () {
 function Support() {
     return (
     <>
+    <br />
+    <br />
+    <br />
     <header>
       <h1>🚢 Hundir la Flota 🚢</h1>
       <p className="subtitle">El clásico juego de estrategia</p>

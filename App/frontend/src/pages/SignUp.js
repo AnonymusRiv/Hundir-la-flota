@@ -3,7 +3,6 @@ import ErrorMessageExample from './Components/Custom-form-user';
 import PasswordInput from './Components/Custom-form-pass';
 import CustomFormName from './Components/Custom-form-name';
 import CustomFormsurName from './Components/Custom-form-surname';
-import axios from 'axios';
 
 export const SignUp = () => {
   const [name, setName] = useState('');
@@ -51,6 +50,7 @@ export const SignUp = () => {
             <br />
             <CustomFormName setName={setName} />
           </div>
+          <br />
           <div className="Auth-form-input">
             <label>Apellido</label>
             <br />

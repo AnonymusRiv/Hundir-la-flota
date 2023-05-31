@@ -1,39 +1,263 @@
-import React from "react";
-import Tablero from "../Components/Tablero";
-import Barcos from "../Components/Barcos";
-export const BOARD_ROWS = 10;
-export const BOARD_COLUMNS = 10;
+import React, { useState } from 'react';
+import { EasyGameView } from './EasyGameView';
+import {
+  placeAllComputerShips,
+  SQUARE_STATE,
+  indexToCoords,
+  putEntityInLayout,
+  generateEmptyLayout,
+  generateRandomIndex,
+  getNeighbors,
+  updateSunkShips,
+  coordsToIndex,
+} from './layoutHelpersEasyGame';
 
-const handlePositions = () => {
+const AVAILABLE_SHIPS = [
+  {
+    name: 'carrier3',
+    length: 4,
+    placed: null,
+  },
+  {
+    name: 'carrier',
+    length: 3,
+    placed: null,
+  },
+  {
+    name: 'battleship',
+    length: 3,
+    placed: null,
+  },
+  {
+    name: 'cruiser',
+    length: 2,
+    placed: null,
+  },
+  {
+    name: 'submarine',
+    length: 2,
+    placed: null,
+  },
+  {
+    name: 'destroyer',
+    length: 1,
+    placed: null,
+  },
+];
 
-}
+export const Game = () => {
+  const [gameState, setGameState] = useState('placement');
+  const [winner, setWinner] = useState(null);
 
-const tipo="easy"
+  const [currentlyPlacing, setCurrentlyPlacing] = useState(null);
+  const [placedShips, setPlacedShips] = useState([]);
+  const [availableShips, setAvailableShips] = useState(AVAILABLE_SHIPS);
+  const [computerShips, setComputerShips] = useState([]);
+  const [hitsByPlayer, setHitsByPlayer] = useState([]);
+  const [hitsByComputer, setHitsByComputer] = useState([]);
 
-function EasyGame() {
-    return (
-        <>
-            <h1 className="games" align='center'>Modo Fácil 🌻</h1>
-            <br></br>
-            <h3 className='election'>
-                En este modo de juego se mostrará un tablero de 10x10 en el que tendrás que adivinar la posición de los 6 barcos del oponente.
-            </h3>
-            <div className="tableros-container">
-                <div>
-                    <Barcos tipo={tipo}/>
-                </div>
-                <div className="tablero-container">
-                    <Tablero filas={BOARD_ROWS} columnas={BOARD_COLUMNS} />
-                </div>
-                <div className="tablero-container">
-                    <Tablero filas={BOARD_ROWS} columnas={BOARD_COLUMNS} />
-                </div>
-            </div>
-            <div align='center'>
-                <button className='start' onClick={handlePositions}>Comenzar Partida</button>
-            </div>
-        </>
+  // *** PLAYER ***
+  const selectShip = (shipName) => {
+    let shipIdx = availableShips.findIndex((ship) => ship.name === shipName);
+    const shipToPlace = availableShips[shipIdx];
+
+    setCurrentlyPlacing({
+      ...shipToPlace,
+      orientation: 'horizontal',
+      position: null,
+    });
+  };
+
+  const placeShip = (currentlyPlacing) => {
+    setPlacedShips([
+      ...placedShips,
+      {
+        ...currentlyPlacing,
+        placed: true,
+      },
+    ]);
+
+    setAvailableShips((previousShips) =>
+      previousShips.filter((ship) => ship.name !== currentlyPlacing.name)
     );
-}  
 
-export default EasyGame;
+    setCurrentlyPlacing(null);
+  };
+
+  const rotateShip = (event) => {
+    if (currentlyPlacing != null && event.button === 2) {
+      setCurrentlyPlacing({
+        ...currentlyPlacing,
+        orientation:
+          currentlyPlacing.orientation === 'vertical' ? 'horizontal' : 'vertical',
+      });
+    }
+  };
+
+  const startTurn = () => {
+    generateComputerShips();
+    setGameState('player-turn');
+  };
+
+  const changeTurn = () => {
+    setGameState((oldGameState) =>
+      oldGameState === 'player-turn' ? 'computer-turn' : 'player-turn'
+    );
+  };
+
+  // *** COMPUTER ***
+  const generateComputerShips = () => {
+    let placedComputerShips = placeAllComputerShips(AVAILABLE_SHIPS.slice());
+    setComputerShips(placedComputerShips);
+  };
+
+  const computerFire = (index, layout) => {
+    let computerHits;
+
+    if (layout[index] === 'ship') {
+      computerHits = [
+        ...hitsByComputer,
+        {
+          position: indexToCoords(index),
+          type: SQUARE_STATE.hit,
+        },
+      ];
+    }
+    if (layout[index] === 'empty') {
+      computerHits = [
+        ...hitsByComputer,
+        {
+          position: indexToCoords(index),
+          type: SQUARE_STATE.miss,
+        },
+      ];
+    }
+    const sunkShips = updateSunkShips(computerHits, placedShips);
+    const sunkShipsAfter = sunkShips.filter((ship) => ship.sunk).length;
+    const sunkShipsBefore = placedShips.filter((ship) => ship.sunk).length;
+    setPlacedShips(sunkShips);
+    setHitsByComputer(computerHits);
+  };
+
+  // Change to computer turn, check if game over and stop if yes; if not fire into an eligible square
+  const handleComputerTurn = () => {
+    changeTurn();
+
+    if (checkIfGameOver()) {
+      return;
+    }
+
+    // Recreate layout to get eligible squares
+    let layout = placedShips.reduce(
+      (prevLayout, currentShip) =>
+        putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship),
+      generateEmptyLayout()
+    );
+
+    layout = hitsByComputer.reduce(
+      (prevLayout, currentHit) =>
+        putEntityInLayout(prevLayout, currentHit, currentHit.type),
+      layout
+    );
+
+    layout = placedShips.reduce(
+      (prevLayout, currentShip) =>
+        currentShip.sunk
+          ? putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship_sunk)
+          : prevLayout,
+      layout
+    );
+
+    let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit');
+
+    let nonSunkComputerHits = successfulComputerHits.filter((hit) => {
+      const hitIndex = coordsToIndex(hit.position);
+      return layout[hitIndex] === 'hit';
+    });
+
+    let potentialTargets = nonSunkComputerHits
+      .flatMap((hit) => getNeighbors(hit.position))
+      .filter((idx) => layout[idx] === 'empty' || layout[idx] === 'ship');
+
+    // Until there's a successful hit
+    if (potentialTargets.length === 0) {
+      let layoutIndices = layout.map((item, idx) => idx);
+      potentialTargets = layoutIndices.filter(
+        (index) => layout[index] === 'ship' || layout[index] === 'empty'
+      );
+    }
+
+    let randomIndex = generateRandomIndex(potentialTargets.length);
+
+    let target = potentialTargets[randomIndex];
+
+    setTimeout(() => {
+      computerFire(target, layout);
+      changeTurn();
+    }, 300);
+  };
+
+  // *** END GAME ***
+
+  // Check if either player or computer ended the game
+  const checkIfGameOver = () => {
+    let successfulPlayerHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
+    let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit')
+      .length;
+
+    if (successfulComputerHits === 17 || successfulPlayerHits === 17) {
+      setGameState('game-over');
+
+      if (successfulComputerHits === 17) {
+        setWinner('computer');
+      }
+      if (successfulPlayerHits === 17) {
+        setWinner('player');
+      }
+
+      return true;
+    }
+
+    return false;
+  };
+
+  const startAgain = () => {
+    setGameState('placement');
+    setWinner(null);
+    setCurrentlyPlacing(null);
+    setPlacedShips([]);
+    setAvailableShips(AVAILABLE_SHIPS);
+    setComputerShips([]);
+    setHitsByPlayer([]);
+    setHitsByComputer([]);
+  };
+
+  return (
+    <React.Fragment>
+      <EasyGameView
+        availableShips={availableShips}
+        selectShip={selectShip}
+        currentlyPlacing={currentlyPlacing}
+        setCurrentlyPlacing={setCurrentlyPlacing}
+        rotateShip={rotateShip}
+        placeShip={placeShip}
+        placedShips={placedShips}
+        startTurn={startTurn}
+        computerShips={computerShips}
+        gameState={gameState}
+        changeTurn={changeTurn}
+        hitsByPlayer={hitsByPlayer}
+        setHitsByPlayer={setHitsByPlayer}
+        hitsByComputer={hitsByComputer}
+        setHitsByComputer={setHitsByComputer}
+        handleComputerTurn={handleComputerTurn}
+        checkIfGameOver={checkIfGameOver}
+        startAgain={startAgain}
+        winner={winner}
+        setComputerShips={setComputerShips}
+      />
+    </React.Fragment>
+  );
+};
+
+export default Game;

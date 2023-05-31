@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage, FormHelperText } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Input } from '@chakra-ui/react';
 
@@ -15,11 +15,7 @@ export default function ErrorMessageExample({ setEmail }) {
   return (
     <FormControl isInvalid={isError}>
       <Input name="email" type="email" value={input} onChange={handleInputChange} />
-      {!isError ? (
-        <FormHelperText>
-          Ingresa tu correo electrónico.
-        </FormHelperText>
-      ) : (
+      {!isError ? null : (
         <FormErrorMessage>Se requiere un correo electrónico</FormErrorMessage>
       )}
     </FormControl>

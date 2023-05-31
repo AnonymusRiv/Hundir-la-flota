@@ -7,6 +7,9 @@ import { UnorderedList, ListItem } from "@chakra-ui/react";
 const handleData = () => {
 }
 
+const handleDelete = () => {
+}
+
 function Profile() {
     return (
         <>
@@ -30,6 +33,7 @@ function Profile() {
               </CardBody>
               <CardFooter>
                 <button className='modificar' onClick={handleData}>Modificar perfil</button>
+                <button className='borrar' onClick={handleDelete}>Eliminar perfil</button>
               </CardFooter>
             </Card>
             <Card align='center' size={"lg"}>

@@ -216,6 +216,11 @@ button {
   color: #000000;
 }
 
+.borrar {
+  background-color: var(--oc-red-8);
+  color: #000000;
+}
+
 .statistics{
   color: var(--oc-black-rgb);
   font-family: 'Libre Franklin', sans-serif;

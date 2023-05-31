@@ -1,14 +1,39 @@
 import React, { useState } from 'react';
 import ErrorMessageExample from './Components/Custom-form-user';
-import PasswordInput from './Components/Custom-form-pass';
 import CustomFormName from './Components/Custom-form-name';
 import CustomFormsurName from './Components/Custom-form-surname';
 
-export const SignUp = () => {
+export const ModifyUser = () => {
   const [name, setName] = useState('');
   const [surname, setsurName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+  const handleData = async (event) => {
+    event.preventDefault();
+     
+    try {
+      const newData = 'nuevo valor'; 
+  
+      const response = await fetch('/modify/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({new_data: newData}),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        if (data.valido) {
+          console.log("Usuario modificado");
+        } else {
+          console.log("Error al modificar el usuario");}
+        }
+    
+    } catch (error) {
+      console.log('Error de red', error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,7 +44,7 @@ export const SignUp = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, surname, email, password }),
+        body: JSON.stringify({ name, surname, email}),
       });
       if (response.ok) {
         const data = await response.json();
@@ -40,11 +65,13 @@ export const SignUp = () => {
     }
   };
 
+
+
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={handleSubmit}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Registro de Usuario</h3>
+          <h3 className="Auth-form-title">Modificar Información</h3>
           <div className="Auth-form-input">
             <label>Nombre</label>
             <br />
@@ -63,14 +90,9 @@ export const SignUp = () => {
             <ErrorMessageExample setEmail={setEmail} />
           </div>
           <br />
-          <div className="Auth-form-input">
-            <label>Contraseña</label>
-            <br />
-            <PasswordInput setPassword={setPassword} />
-          </div>
           <div>
-            <button type="submit" className="sign">
-              Regístrate
+            <button type="submit" className="sign" onClick={handleData}>
+              Modificar datos
             </button>
           </div>
         </div>
@@ -79,4 +101,4 @@ export const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default ModifyUser;

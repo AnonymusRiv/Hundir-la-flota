@@ -48,12 +48,16 @@ function InfoStats () {
 function Help() {
     return (
     <>
+    <br />
+    <br />
+    <br />
+    <br />
     <header>
       <h1>🚢 Hundir la Flota 🚢</h1>
       <p className="subtitle">El clásico juego de estrategia</p>
       <br></br>
     </header>
-    <h1 className="edit"> AYUDA 🤙 </h1>
+    <h1 className="edit"> AYUDA 🛟 </h1>
     <br></br>
     <Accordion allowToggle>
       <AccordionItem>

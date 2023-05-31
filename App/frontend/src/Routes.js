@@ -9,6 +9,7 @@ import Help from "./pages/Game/Help";
 import Profile from "./pages/Game/Profile";
 import EasyGame from "./pages/Game/EasyGame";
 import DifficultGame from "./pages/Game/DifficultGame";
+import ModifyUser from "./pages/ModifyUser";
 
 export default function RouteProvider(){
     return(
@@ -17,6 +18,7 @@ export default function RouteProvider(){
             <Route path="/" element={<WelcomeScreen />} />
             <Route path="/SignUp/" element={<SignUp />} />
             <Route path="/SignIn/" element={<SignIn />} />
+            <Route path="/ModifyUser" element={<ModifyUser />} />
             <Route path="/Game">
                 <Route path="/Game/:game" element={<GameSelect />} />
                 <Route path="/Game/Support" element={<Support />} />

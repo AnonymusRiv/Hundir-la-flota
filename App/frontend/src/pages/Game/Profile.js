@@ -5,34 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { UnorderedList, ListItem } from "@chakra-ui/react";
 
 
-const handleData = async (event) => {
-  event.preventDefault();
-   
-  try {
-    const newData = 'nuevo valor'; 
-
-    const response = await fetch('/modify/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({new_data: newData}),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      if (data.valido) {
-        console.log("Usuario modificado");
-      } else {
-        console.log("Error al modificar el usuario");}
-      }
-  
-  } catch (error) {
-    console.log('Error de red', error);
-  }
-};
-
-
 const handleDelete = async (event) => {
   event.preventDefault();
 
@@ -94,14 +66,19 @@ function Profile() {
 
   return (
       <>
+      <br />
+      <br />
+      <br />
       <header>
           <h1>🚢 Hundir la Flota 🚢</h1>
           <p className="subtitle">El clásico juego de estrategia</p>
           <br></br>
       </header>
-      <h1 className="edit"> PERFIL DE USUARIO 🤙 </h1>
+      <SimpleGrid columns={1} className="bar">
+        <h1 className="edit"> PERFIL DE USUARIO 🤙 </h1>
+      </SimpleGrid>
       <br></br>
-      <SimpleGrid spacing={0} columns={2}>
+      <SimpleGrid spacing={10} columns={2}>
           <Card align='center' size='md'>
             <CardBody>
               <Image width={200}
@@ -114,8 +91,8 @@ function Profile() {
               <h3>Correo electrónico: {email}</h3>
             </CardBody>
             <CardFooter>
-              <button className='modificar' onClick={handleData}>Modificar perfil</button>
-              <button className='borrar' onClick={handleDelete}>Eliminar perfil</button>
+              <NavLink to="/ModifyUser"><button className='Modificar'>Modificar perfil</button></NavLink>
+              <button className='Dificil' onClick={handleDelete}>Eliminar perfil</button>
             </CardFooter>
           </Card>
           <Card align='center' size={"lg"}>
@@ -130,7 +107,7 @@ function Profile() {
               </UnorderedList>
             </CardBody>
             <CardFooter>
-              <NavLink to= "/Game/GameSelect"> <button className="backToGame">Jugar</button> </NavLink>
+              <NavLink to= "/Game/GameSelect"> <button className="Jugar">Jugar</button> </NavLink>
             </CardFooter>
           </Card>
       </SimpleGrid>

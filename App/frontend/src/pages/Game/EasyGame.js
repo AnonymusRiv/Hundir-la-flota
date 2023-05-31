@@ -1,27 +1,26 @@
-import React, {useState} from "react";
+import React from "react";
 import Tablero from "../Components/Tablero";
 import Barcos from "../Components/Barcos";
 export const BOARD_ROWS = 10;
 export const BOARD_COLUMNS = 10;
-export const BOARD = BOARD_COLUMNS * BOARD_ROWS;
 
-export const SQUARE_STATE = {
-    empty: 'empty',
-    ship: 'ship',
-    hit: 'hit',
-    miss: 'miss',
-    ship_sunk: 'ship-sunk',
-    forbidden: 'forbidden',
-    awaiting: 'awaiting',
-};
+const handlePositions = () => {
+
+}
+
+const tipo="easy"
 
 function EasyGame() {
     return (
         <>
-            <h1 align='center'>EasyGame</h1>
+            <h1 className="games" align='center'>Modo Fácil 🌻</h1>
+            <br></br>
+            <h3 className='election'>
+                En este modo de juego se mostrará un tablero de 10x10 en el que tendrás que adivinar la posición de los 6 barcos del oponente.
+            </h3>
             <div className="tableros-container">
                 <div>
-                    <Barcos />
+                    <Barcos tipo={tipo}/>
                 </div>
                 <div className="tablero-container">
                     <Tablero filas={BOARD_ROWS} columnas={BOARD_COLUMNS} />
@@ -29,6 +28,9 @@ function EasyGame() {
                 <div className="tablero-container">
                     <Tablero filas={BOARD_ROWS} columnas={BOARD_COLUMNS} />
                 </div>
+            </div>
+            <div align='center'>
+                <button className='start' onClick={handlePositions}>Comenzar Partida</button>
             </div>
         </>
     );

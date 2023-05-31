@@ -7,6 +7,11 @@ import {
     AccordionIcon,
   } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
+import {
+  List,
+  ListItem,
+  UnorderedList,
+} from '@chakra-ui/react'
 
 function InfoGame () {
     return (
@@ -29,10 +34,12 @@ function InfoStats () {
     return (
         <>
         <p className="player-tip">
-          Deberás posicionar tus barcos 
-          en unas coordenadas secretas que deberá adivinar tu oponente. El primero
-          en hundir los barcos del contrincante, será el ganador.
+          Dependiendo de la dificultad seleccionada, se mostrarán las estadísticas de acierto de cada una de ellas. Además, se mostrarán del siguiente modo:
         </p>
+        <UnorderedList>
+          <ListItem className="player-tip">Has acertado X veces en Y intentos.</ListItem>
+          <ListItem className="player-tip">Has acertado Z veces en K intentos.</ListItem>
+        </UnorderedList>
       </>
     );
 }
@@ -45,8 +52,9 @@ function Help() {
       <h1>🚢 Hundir la Flota 🚢</h1>
       <p className="subtitle">El clásico juego de estrategia</p>
       <br></br>
-      <br></br>
     </header>
+    <h1 className="edit"> AYUDA 🤙 </h1>
+    <br></br>
     <Accordion allowToggle>
       <AccordionItem>
         <h2>

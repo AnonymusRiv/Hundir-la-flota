@@ -71,7 +71,7 @@ class NavbarDefault extends Component {
 }
 
 export const GameSelect = () => {
-  const [isLogged, setIsLogged] = React.useState(false);
+  const [isLogged, setIsLogged] = React.useState(true);
 
   checkLogin();
 
@@ -88,7 +88,7 @@ export const GameSelect = () => {
       <CardHeader>
         <Heading size='lg' align='center' style={{marginTop: '2rem'}}> Modo fácil 🌻</Heading>
       </CardHeader>
-        <h3 className='election'>Tablero de 10x10 en el que tendrás que adivinar la posición de los 10 barcos del oponente.</h3>
+        <h3 className='election'>Tablero de 10x10 en el que tendrás que adivinar la posición de los 6 barcos del oponente.</h3>
         </Stack>
       </CardBody>
       <CardFooter>
@@ -105,7 +105,7 @@ export const GameSelect = () => {
       <CardHeader>
         <Heading size='lg' align='center' style={{marginTop: '2rem'}}> Modo Difícil 💀</Heading>
       </CardHeader>
-        <h3 className='election'>Tablero de 15x15 en que tendrás que adivinar la posición de los 10 barcos del oponente (ahora de menor tamaño).</h3>
+        <h3 className='election'>Tablero de 15x15 en que tendrás que adivinar la posición de los 6 barcos del oponente (ahora de menor tamaño).</h3>
         </Stack>
       </CardBody>
       <CardFooter>

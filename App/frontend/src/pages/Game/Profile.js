@@ -5,31 +5,8 @@ import { NavLink } from 'react-router-dom';
 import { UnorderedList, ListItem } from "@chakra-ui/react";
 
 
-const handleData = async (event) => {
-  event.preventDefault();
-   
-  try {
-    const newData = 'nuevo valor'; 
-
-    const response = await fetch('/modify/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({new_data: newData}),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      if (data.valido) {
-        console.log("Usuario modificado");
-      } else {
-        console.log("Error al modificar el usuario");}
-      }
-  
-  } catch (error) {
-    console.log('Error de red', error);
-  }
+const handleData = async () => {
+  window.location.href = '/ModifyUser';
 };
 
 

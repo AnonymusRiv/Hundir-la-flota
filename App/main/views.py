@@ -85,13 +85,18 @@ def showProfile(request):
         return JsonResponse(profile_data)
     return render(request, "index.html")
 
-def modify(request):
+def modifyProfile(request):
     if request.method == 'POST':
-        User = get_user_model()
         user = request.user
+        body = json.loads(request.body)
+        email = body.get('email')
+        name = body.get('name')
+        surname = body.get('surname')
         if user.is_authenticated:
-            new_data = request.POST.get('new_data')
-            user.data_field = new_data
+            user.email = email
+            user.first_name = name
+            user.last_name = surname
+            user.username = email
             user.save()
             return JsonResponse({"valido": True})
         else:
@@ -100,7 +105,6 @@ def modify(request):
 
 def delete(request):
     if request.method == 'POST':
-        User = get_user_model()
         user = request.user
         if user.is_authenticated:
             user.delete()

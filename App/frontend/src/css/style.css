@@ -111,6 +111,24 @@ h1 {
   font-size: 38px;
 }
 
+.edit {
+  font-size: 32px;
+  text-align: center;
+  color: #000000;
+}
+
+.games {
+  font-size: 40px;
+  text-align: center;
+  color: #000000;
+}
+
+.statistic{
+  font-size: 25px;
+  text-align: center;
+  color: #000000;
+}
+
 .subtitle {
   font-size: 22px;
   color: var(--oc-indigo-4);
@@ -163,11 +181,25 @@ button {
   color: var(--oc-gray-1);
 }
 
+.start {
+  width: 250px;
+  font-size: 20px;
+  text-align: center;
+  background-color: var(--oc-indigo-8);
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
+}
+
 .User{
   background-color: var(--oc-yellow-7);
 }
 
 .Jugar {
+  background-color: var(--oc-green-5);
+}
+
+.backToGame{
+  color: #000000;
   background-color: var(--oc-green-5);
 }
 
@@ -177,6 +209,23 @@ button {
 
 .Dificil {
   background-color: var(--oc-red-7);
+}
+
+.modificar {
+  background-color: var(--oc-orange-6);
+  color: #000000;
+}
+
+.borrar {
+  background-color: var(--oc-red-8);
+  color: #000000;
+}
+
+.statistics{
+  color: var(--oc-black-rgb);
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
+  text-align: justify;
 }
 
 button:hover {
@@ -299,3 +348,23 @@ label {
   border-radius: 50%;
 }
 
+.container {
+  width: 400px;
+  height: 400px;
+  background-color: var(--oc-indigo-4);
+  margin: 0;
+  border-radius: 2px;
+}
+
+.container2{
+  width: 400px;
+  height: 400px;
+  margin: 0;
+  border-radius: 2px;
+}
+
+.containers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

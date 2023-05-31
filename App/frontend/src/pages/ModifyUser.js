@@ -4,72 +4,39 @@ import CustomFormName from './Components/Custom-form-name';
 import CustomFormsurName from './Components/Custom-form-surname';
 
 export const ModifyUser = () => {
-  const [name, setName] = useState('');
-  const [surname, setsurName] = useState('');
-  const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setsurName] = useState('');
+    const [email, setEmail] = useState('');
 
-  const handleData = async (event) => {
-    event.preventDefault();
-     
-    try {
-      const newData = 'nuevo valor'; 
-  
-      const response = await fetch('/modify/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({new_data: newData}),
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        if (data.valido) {
-          console.log("Usuario modificado");
-        } else {
-          console.log("Error al modificar el usuario");}
+    const handleData = async (event) => {
+        event.preventDefault();
+        try {
+        
+        const response = await fetch('/ModifyUser/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name, surname, email}),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            if (data.valido) {
+                console.log("Usuario modificado");
+                window.location.href = '/Game/Profile';
+            } else {
+                console.log("Error al modificar el usuario");}
+            }
+        
+        } catch (error) {
+            console.log('Error de red', error);
         }
-    
-    } catch (error) {
-      console.log('Error de red', error);
-    }
-  };
+    };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, surname, email}),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        if (data.valido) {
-          console.log("Credenciales validas");
-          window.location.href = '/Game/GameSelect';
-        } else {
-          console.log("Credenciales inválidas");}
-      } else {
-        // La solicitud falló
-        // Aquí puedes manejar el error de alguna manera
-        console.log('Error al registrar');
-      }
-
-    } catch (error) {
-      // Hubo un error de red u otro error relacionado con la solicitud
-      console.log('Error de red', error);
-    }
-  };
-
-
-
-  return (
+    return (
     <div className="Auth-form-container">
-      <form className="Auth-form" onSubmit={handleSubmit}>
+      <form className="Auth-form" onSubmit={handleData}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Modificar Información</h3>
           <div className="Auth-form-input">
@@ -91,7 +58,8 @@ export const ModifyUser = () => {
           </div>
           <br />
           <div>
-            <button type="submit" className="sign" onClick={handleData}>
+
+            <button type="submit" className="sign">
               Modificar datos
             </button>
           </div>
@@ -100,5 +68,6 @@ export const ModifyUser = () => {
     </div>
   );
 };
+
 
 export default ModifyUser;

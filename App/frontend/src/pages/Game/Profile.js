@@ -5,6 +5,12 @@ import { NavLink } from 'react-router-dom';
 import { UnorderedList, ListItem } from "@chakra-ui/react";
 
 
+
+const handleData = async () => {
+  window.location.href = '/ModifyUser';
+};
+
+
 const handleDelete = async (event) => {
   event.preventDefault();
 

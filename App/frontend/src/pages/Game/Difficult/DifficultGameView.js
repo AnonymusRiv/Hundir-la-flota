@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { PlayerFleet } from './PlayerFleet';
-import { PlayerBoard } from './PlayerBoard';
-import { ComputerBoard } from './ComputerBoard';
-import { PlayerTips } from './PlayerTips';
+import { PlayerFleet } from '../PlayerFleet';
+import { PlayerBoard } from './DifficultPlayerBoard';
+import { ComputerBoard } from './DifficultComputerBoard';
+import { PlayerTips } from '../PlayerTips';
 
 const tipo = 'difficult';
 

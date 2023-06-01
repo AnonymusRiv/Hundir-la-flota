@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { PlayerFleet } from './PlayerFleet';
-import { PlayerBoard } from './PlayerBoard';
-import { ComputerBoard } from './ComputerBoard';
-import { PlayerTips } from './PlayerTips';
+import { PlayerFleet } from '../PlayerFleet';
+import { PlayerBoard } from './EasyPlayerBoard';
+import { ComputerBoard } from './EasyComputerBoard';
+import { PlayerTips } from '../PlayerTips';
 
 export const EasyGameView = ({
   availableShips,

@@ -126,7 +126,7 @@ export const GameSelect = () => {
         </Stack>
       </CardBody>
       <CardFooter>
-        <NavLink to="/Game/EasyGame"><button className='Facil'>Comenzar</button></NavLink>
+        <NavLink to="/Game/Easy/EasyGame"><button className='Facil'>Comenzar</button></NavLink>
       </CardFooter>
     </Card>
     <Card align='center' maxW='lg'>
@@ -143,7 +143,7 @@ export const GameSelect = () => {
         </Stack>
       </CardBody>
       <CardFooter>
-        <NavLink to="/Game/DifficultGame"><button className='Dificil'>Comenzar</button></NavLink>
+        <NavLink to="/Game/Difficult/DifficultGame"><button className='Dificil'>Comenzar</button></NavLink>
       </CardFooter>
     </Card> 
   </SimpleGrid>

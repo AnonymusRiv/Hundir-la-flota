@@ -9,16 +9,6 @@ import {
   canBePlaced,
 } from './layoutHelpersEasyGame';
 
-import {
-  SQUARE_STATED,
-  stateToClassD,
-  generateEmptyLayoutD,
-  putEntityInLayoutD,
-  indexToCoordsD,
-  calculateOverhangD,
-  canBePlacedD,
-} from './layoutHelpersDifficultGame';
-
 export const PlayerBoard = ({
   currentlyPlacing,
   setCurrentlyPlacing,
@@ -26,7 +16,6 @@ export const PlayerBoard = ({
   placeShip,
   placedShips,
   hitsByComputer,
-  tipo,
 }) => {
   // Player ships on empty layout
   let layout = placedShips.reduce(
@@ -91,7 +80,7 @@ export const PlayerBoard = ({
 
   return (
     <div>
-      <h3 className="tip-box-title">Tu tablero</h3>
+      <div className="tip-box-title">Tu tablero</div>
       <div className="board">{squares}</div>
     </div>
   );

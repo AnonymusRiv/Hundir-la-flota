@@ -1,9 +1,5 @@
 import React from 'react';
 
-function ExportsResults () {
-  
-}
-
 export const PlayerTips = ({
   hitsbyPlayer,
   hitsByComputer,
@@ -22,14 +18,14 @@ export const PlayerTips = ({
         
       </p>
       <p className="restart" onClick={startAgain}>
-        Play again?
+        Jugar otra vez?
       </p>
     </div>
   );
 
   let tipsPanel = (
     <div>
-      <div className="tip-box-title">📈 Estadísticas 📈</div>
+      <div className="tip-box-title">Estadísticas</div>
       <div id="firing-info">
         <ul>
           <li>{numberOfSuccessfulHits} lanzamientos existosos</li>
@@ -37,7 +33,7 @@ export const PlayerTips = ({
         </ul>
         <p className="player-tip">El primero en hundir los 6 barcos del oponente ganará la partida</p>
         <p className="restart" onClick={startAgain}>
-          Restart
+          Volver a jugar
         </p>
       </div>
     </div>

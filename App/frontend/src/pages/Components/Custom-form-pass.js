@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage, FormHelperText } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Input } from '@chakra-ui/react';
 
@@ -10,7 +10,12 @@ export default function PasswordInput({ setPassword }) {
     setPassword(e.target.value);
   };
 
-  const isError = input === '';
+  const validatePassword = () => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(input);
+  };
+
+  const isError = input === '' || !validatePassword();
 
   return (
     <FormControl isInvalid={isError}>
@@ -18,6 +23,9 @@ export default function PasswordInput({ setPassword }) {
       {!isError ? null : (
         <FormErrorMessage>Se requiere una contraseña</FormErrorMessage>
       )}
+      {!isError ? (
+        <FormHelperText>La contraseña debe de contener  al menos 8 caracteres, una máyuscula, una minúscula, un dígito y un carácter especial.</FormHelperText>
+      ) : null}
     </FormControl>
   );
 }

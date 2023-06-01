@@ -14,7 +14,7 @@ import {
 
 const AVAILABLE_SHIPS = [
   {
-    name: 'carrier3',
+    name: 'Venganza Naval',
     length: 4,
     placed: null,
   },
@@ -34,7 +34,7 @@ const AVAILABLE_SHIPS = [
     placed: null,
   },
   {
-    name: 'submarine',
+    name: 'Espectro Marino',
     length: 2,
     placed: null,
   },
@@ -84,8 +84,9 @@ export const Game = () => {
     setCurrentlyPlacing(null);
   };
 
+  //Se tiene que girar al pulsar el espacio
   const rotateShip = (event) => {
-    if (currentlyPlacing != null && event.button === 2) {
+    if (currentlyPlacing != null && event.button === 1) {
       setCurrentlyPlacing({
         ...currentlyPlacing,
         orientation:

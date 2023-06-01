@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EasyGameView } from './EasyGameView';
+import { DifficultGameView } from './DifficultGameView';
 import {
   placeAllComputerShips,
   SQUARE_STATE,
@@ -234,7 +234,7 @@ export const Game = () => {
 
   return (
     <React.Fragment>
-      <EasyGameView
+      <DifficultGameView
         availableShips={availableShips}
         selectShip={selectShip}
         currentlyPlacing={currentlyPlacing}

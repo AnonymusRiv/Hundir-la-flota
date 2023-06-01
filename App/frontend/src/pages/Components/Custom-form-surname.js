@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage, FormHelperText } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 import { useState } from 'react'
 
@@ -10,7 +10,12 @@ function CustomFormsurName({ setsurName }) {
     setsurName(e.target.value);
   };
 
-  const isError = input === '';
+  const validateSurname = () => {
+    const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+    return regex.test(input);
+  };
+
+  const isError = input === '' || !validateSurname();
 
   return (
     <FormControl isInvalid={isError}>
@@ -18,6 +23,9 @@ function CustomFormsurName({ setsurName }) {
       {!isError ? null : (
         <FormErrorMessage>Se requiere un apellido de usuario</FormErrorMessage>
       )}
+      {!isError ? (
+        <FormHelperText>El nombre no debe contener números ni caracteres especiales.</FormHelperText>
+      ) : null}
     </FormControl>
   );
 }

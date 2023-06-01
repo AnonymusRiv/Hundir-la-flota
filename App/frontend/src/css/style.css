@@ -75,6 +75,7 @@ main {
 .tip-box-title {
   font-size: 22px;
   text-transform: uppercase;
+  font-family: var(--headlines);
   color: var(--oc-black-rgb);
 }
 

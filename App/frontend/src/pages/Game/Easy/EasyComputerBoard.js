@@ -102,7 +102,7 @@ export const ComputerBoard = ({
 
   return (
     <div>
-      <h2 className="player-title">Computer</h2>
+      <h3 className="tip-box-title">Oponente</h3>
       <div className="board">{compSquares}</div>
     </div>
   );

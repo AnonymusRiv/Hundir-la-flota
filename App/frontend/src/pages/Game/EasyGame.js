@@ -19,17 +19,17 @@ const AVAILABLE_SHIPS = [
     placed: null,
   },
   {
-    name: 'carrier',
+    name: 'Aniquilador Marino',
     length: 3,
     placed: null,
   },
   {
-    name: 'battleship',
+    name: 'Tridente',
     length: 3,
     placed: null,
   },
   {
-    name: 'cruiser',
+    name: 'Furia Marina',
     length: 2,
     placed: null,
   },
@@ -39,7 +39,7 @@ const AVAILABLE_SHIPS = [
     placed: null,
   },
   {
-    name: 'destroyer',
+    name: 'Relámpago Marino',
     length: 1,
     placed: null,
   },

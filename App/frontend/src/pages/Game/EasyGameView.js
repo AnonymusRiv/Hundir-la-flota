@@ -28,12 +28,13 @@ export const EasyGameView = ({
   setComputerShips,
 }) => {
   return (
+    <>
+    <h1 className="games" align='center'>Modo Fácil 🌻</h1>
+    <br></br>
+    <h3 className='election'>
+        En este modo de juego se mostrará un tablero de 10x10 en el que tendrás que adivinar la posición de los 6 barcos del oponente.
+    </h3>
     <section id="game-screen">
-      <h1 className="games" align='center'>Modo Fácil 🌻</h1>
-      <br></br>
-      <h3 className='election'>
-          En este modo de juego se mostrará un tablero de 10x10 en el que tendrás que adivinar la posición de los 6 barcos del oponente.
-      </h3>
       {gameState !== 'placement' ? (
         <PlayerTips
           gameState={gameState}
@@ -72,6 +73,7 @@ export const EasyGameView = ({
         setComputerShips={setComputerShips}
       />
     </section>
+    </>
   );
 };
 

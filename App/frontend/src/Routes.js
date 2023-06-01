@@ -8,7 +8,6 @@ import GameSelect from "./pages/Game/GameSelect";
 import Support from "./pages/Game/Support";
 import Help from "./pages/Game/Help";
 import Profile from "./pages/Game/Profile";
-import DifficultGameView from "./pages/Game/DifficultGameView";
 import EasyGame from "./pages/Game/EasyGame";
 import DifficultGame from "./pages/Game/DifficultGame";
 

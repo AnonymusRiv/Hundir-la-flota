@@ -7,7 +7,7 @@ import {
   indexToCoords,
   calculateOverhang,
   canBePlaced,
-} from '../EasyGame/layoutHelpersEasyGame';
+} from './layoutHelpersEasyGame';
 
 import {
   SQUARE_STATED,
@@ -17,7 +17,7 @@ import {
   indexToCoordsD,
   calculateOverhangD,
   canBePlacedD,
-} from '../DifficultGame/layoutHelpersDifficultGame';
+} from './layoutHelpersDifficultGame';
 
 export const PlayerBoard = ({
   currentlyPlacing,
@@ -91,7 +91,7 @@ export const PlayerBoard = ({
 
   return (
     <div>
-      <h2 className="player-title">You</h2>
+      <h3 className="tip-box-title">Tu tablero</h3>
       <div className="board">{squares}</div>
     </div>
   );

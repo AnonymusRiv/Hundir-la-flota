@@ -1,7 +1,6 @@
 # GRUPO 4. Hundir la Flota.
-<picture>
-  <img alt="Shows an illustrated boat with the title of the work." src="https://raw.githubusercontent.com/AnonymusRiv/Hundir-la-flota/main/hundirlaflota.png">
-</picture>
+![hows an illustrated boat with the title of the work.](./hundirlaflota.png)
+
 
 ## 👨‍💻 | ABOUT US
  - Antonio Jiménez Jiménez

@@ -115,7 +115,7 @@ export const GameSelect = () => {
     <SimpleGrid spacing={20} columns={2}>
     <Card align='center' maxW='lg'>
       <CardBody>
-        <Image
+        <Image 
           src='https://i.ytimg.com/vi/cpefXJXrH3s/maxresdefault.jpg'
           borderRadius='md'/>
         <Stack>

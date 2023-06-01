@@ -11,7 +11,7 @@ export const ModifyUser = () => {
     const handleData = async (event) => {
         event.preventDefault();
         try {
-        
+
         const response = await fetch('/ModifyUser/', {
             method: 'POST',
             headers: {
@@ -28,7 +28,7 @@ export const ModifyUser = () => {
             } else {
                 console.log("Error al modificar el usuario");}
             }
-        
+
         } catch (error) {
             console.log('Error de red', error);
         }

@@ -9,7 +9,6 @@ import Support from "./pages/Game/Support";
 import Help from "./pages/Game/Help";
 import Profile from "./pages/Game/Profile";
 import DifficultGameView from "./pages/Game/DifficultGameView";
-import ModifyUser from "./pages/ModifyUser";
 import EasyGame from "./pages/Game/EasyGame";
 import DifficultGame from "./pages/Game/DifficultGame";
 

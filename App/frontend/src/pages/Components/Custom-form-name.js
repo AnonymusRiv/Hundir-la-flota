@@ -5,7 +5,10 @@ import { useState } from 'react'
 function CustomFormName({ setName }) {
   const [input, setInput] = useState('');
 
-  const handleInputChange = (e) => setName(e.target.value);
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+    setName(e.target.value);
+  };
 
   const isError = input === '';
 

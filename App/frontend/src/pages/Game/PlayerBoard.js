@@ -7,7 +7,7 @@ import {
   indexToCoords,
   calculateOverhang,
   canBePlaced,
-} from './layoutHelpersEasyGame';
+} from '../EasyGame/layoutHelpersEasyGame';
 
 import {
   SQUARE_STATED,
@@ -17,7 +17,7 @@ import {
   indexToCoordsD,
   calculateOverhangD,
   canBePlacedD,
-} from './layoutHelpersDifficultGame';
+} from '../DifficultGame/layoutHelpersDifficultGame';
 
 export const PlayerBoard = ({
   currentlyPlacing,

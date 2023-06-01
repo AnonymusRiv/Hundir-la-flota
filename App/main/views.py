@@ -112,3 +112,7 @@ def delete(request):
         else:
             return JsonResponse({"falso": False})
     return render(request, "index.html")
+
+def estadistics(request):
+
+    return render(request, "index.html")

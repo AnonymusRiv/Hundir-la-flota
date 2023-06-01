@@ -2,10 +2,13 @@ import { FormControl, FormErrorMessage } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 import { useState } from 'react'
 
-function CustomFormSurname({ setName }) {
+function CustomFormsurName({ setsurName }) {
   const [input, setInput] = useState('');
 
-  const handleInputChange = (e) => setName(e.target.value);
+  const handleInputChange = (e) => {
+    setInput(e.target.value)
+    setsurName(e.target.value);
+  };
 
   const isError = input === '';
 
@@ -19,5 +22,5 @@ function CustomFormSurname({ setName }) {
   );
 }
 
-export default CustomFormSurname;
+export default CustomFormsurName;
 

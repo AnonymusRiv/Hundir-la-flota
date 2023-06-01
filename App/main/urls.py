@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import home, register, login_user, logout_user, error, game, delete, showProfile, modifyProfile
+from .views import home, register, login_user, logout_user, error, game, delete, showProfile, modifyProfile, stadistics
 from main import views
 
 urlpatterns = [
@@ -16,5 +16,6 @@ urlpatterns = [
     path("Game/Support", views.home),
     path("Game/Profile/", showProfile, name="showProfile"),
     path("delete/", delete, name='delete'),
-    path("ModifyUser/", modifyProfile, name='modifyProfile')
+    path("ModifyUser/", modifyProfile, name='modifyProfile'),
+    path("stadistics/", stadistics, name='stadistics'),
 ]

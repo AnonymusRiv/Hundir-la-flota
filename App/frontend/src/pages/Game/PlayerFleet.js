@@ -24,7 +24,7 @@ export const PlayerFleet = ({
   let fleet = (
     <div id="replica-fleet">
       {shipReplicaBoxes}
-      <p className="player-tip">Clicl en la rueda del ratón para rotar los barcos</p>
+      <p className="player-tip">Click en la rueda del ratón para rotar los barcos</p>
       <p className="restart" onClick={startAgain}>
         Volver a jugar
       </p>

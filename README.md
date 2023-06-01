@@ -12,28 +12,37 @@
  - Silvia Roldán Flores
  
  ## 👨‍💻 | SOME TECHNOLOGIES WE USE
- <!--- 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white ">
-  <img alt="" src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
-</picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
-  <img alt="" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
-</picture>
+ [![Built with React](https://img.shields.io/badge/Built%20with-React-blue.svg)](https://reactjs.org/)
+ [![Powered by Django](https://img.shields.io/badge/Powered%20by-Django-green.svg)](https://www.djangoproject.com/)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
-  <img alt="" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
-</picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white">
-  <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white">
-  <img alt="" src="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white"> 
-</picture>
---!>
+### HOW TO RUN
+
+First of all we have to be connected to UCO network, by VPN or Wifi.
+
+In this project directory, you can run:
+
+### `git clone`
+
+To clone the repository into your personal computer.
+
+### `cd Hundir-la-flota/App/frontend`
+
+To get into the frontend.
+
+### `npm install`
+
+To install the dependences.
+
+### `npm run build`
+
+Builds the app for production to the build folder.
+
+### `cd ..`
+
+Get into the previous folder.
+
+### `python3 manage.py runserver`
+
+To run the backend server with the frontend.

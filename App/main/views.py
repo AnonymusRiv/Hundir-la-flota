@@ -121,20 +121,57 @@ def stadistics(request):
         numberOfHits = body.get('numberOfHits')
         numberOfSuccessfulHits = body.get('numberOfSuccessfulHits')
         user = request.user
-        aux = Estadistics.objects.get(user_id = user.username)
+        aux = Estadistics.objects.get(user = user)
         if winner == "player":
-            wins = aux.numberWins
-            wins =+ 1
+            wins = aux.numberWins + 1
+            ClickSucces = aux.numberClickSucces + numberOfSuccessfulHits
+            ClickTotal = aux.numberClickTotal + numberOfHits
             aux.numberWins = wins
-            aux.numberClickSucces = numberOfSuccessfulHits
-            aux.numberClickTotal = numberOfHits
+            aux.numberClickSucces = ClickSucces
+            aux.numberClickTotal = ClickTotal
             aux.save()
         else:
-            defeats = aux.numberDefeats
-            defeats =+ 1
+            defeats = aux.numberDefeats + 1
+            ClickSucces = aux.numberClickSucces + numberOfSuccessfulHits
+            ClickTotal = aux.numberClickTotal + numberOfHits
             aux.numberDefeats = defeats
-            aux.numberClickSucces = numberOfSuccessfulHits
-            aux.numberClickTotal = numberOfHits
+            aux.numberClickSucces = ClickSucces
+            aux.numberClickTotal = ClickTotal
             aux.save()
+        return JsonResponse({"valido": True})
     else:
         return render(request, "index.html")
+
+def ShowStadistics(request):
+    if request.method == 'POST':
+        user = request.user
+        aux = Estadistics.objects.get(user = user)
+        estadistics_data = {
+            'winner' : aux.numberWins,
+            'numberOfHits' : aux.numberClickTotal,
+            'numberOfSuccessfulHits' : aux.numberClickSucces,
+            'defeats' : aux.numberDefeats,
+        }
+        return JsonResponse(estadistics_data)
+    return render(request, "index.html")
+
+def profile(request):
+    return render(request, "index.html")
+
+def support(request):
+    return render(request, "index.html")
+
+def EasyGame(request):
+    if request.method == 'POST':
+        # Autenticar al usuario
+        if request.user.is_authenticated:
+            return JsonResponse({"valido": True})
+        else:
+            return JsonResponse({"falso": False})
+    return render(request, "index.html")
+
+def DificultGame(request):
+    return render(request, "index.html")
+
+def help(request):
+    return render(request, "index.html")

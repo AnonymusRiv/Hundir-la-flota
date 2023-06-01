@@ -45,6 +45,11 @@ function Profile() {
   const [email, setemail] = React.useState(null);
   const [name, setname] = React.useState(null);
   const [surname, setsurname] = React.useState(null);
+  const [wins, setwins] = React.useState(null);
+  const [defeats, setdefeats] = React.useState(null);
+  const [numberOfHits, setnumberOfHits] = React.useState(null);
+  const [numberOfSuccessfulHits, setnumberOfSuccessfulHits] = React.useState(null);
+
   const showProfile = async () => {
     try {
       const response = await fetch("/Game/Profile/", {
@@ -60,6 +65,28 @@ function Profile() {
         setname(data.name)
         setsurname(data.surname)
       } else {
+        console.log('Error al recibir las estadísticas');
+      }
+    } catch (error) {
+      console.log('Error de red', error);
+    }
+  };
+  const showStadistics = async () => {
+    try {
+      const response = await fetch("/Game/ShowStadistics/", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setwins(data.winner)
+        setdefeats(data.defeats)
+        setnumberOfHits(data.numberOfHits)
+        setnumberOfSuccessfulHits(data.numberOfSuccessfulHits)
+      } else {
         console.log('Error al verificar el inicio de sesión');
       }
     } catch (error) {
@@ -68,6 +95,7 @@ function Profile() {
   };
   React.useEffect(() => {
     showProfile();
+    showStadistics();
   }, []);
 
   return (
@@ -108,8 +136,10 @@ function Profile() {
             </CardHeader>
               <h3>A continuación, se muestran las estadísticas de juego:</h3>
               <UnorderedList>
-                <ListItem className="statistics">Has acertado X veces en Y intentos.</ListItem>
-                <ListItem className="statistics">Has acertado Z veces en K intentos.</ListItem>
+                <ListItem className="statistics">Victorias: {wins}</ListItem>
+                <ListItem className="statistics">Derrotas derrotas: {defeats}</ListItem>
+                <ListItem className="statistics">Número de aciertos: {numberOfSuccessfulHits}</ListItem>
+                <ListItem className="statistics">Número de click totales: {numberOfHits}</ListItem>
               </UnorderedList>
             </CardBody>
             <CardFooter>

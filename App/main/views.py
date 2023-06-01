@@ -23,6 +23,7 @@ def register(request):
         surname = body.get('surname')
 
         user = User.objects.create_user(email=email, password=password, username=email, first_name=name, last_name=surname)
+        Estadistics.objects.create(user=user)
 
         if user is not None :
             login(request, user)
@@ -113,6 +114,27 @@ def delete(request):
             return JsonResponse({"falso": False})
     return render(request, "index.html")
 
-def estadistics(request):
-
-    return render(request, "index.html")
+def stadistics(request):
+    if request.method == 'POST':
+        body = json.loads(request.body)
+        winner = body.get('winner')
+        numberOfHits = body.get('numberOfHits')
+        numberOfSuccessfulHits = body.get('numberOfSuccessfulHits')
+        user = request.user
+        aux = Estadistics.objects.get(user_id = user.username)
+        if winner == "player":
+            wins = aux.numberWins
+            wins =+ 1
+            aux.numberWins = wins
+            aux.numberClickSucces = numberOfSuccessfulHits
+            aux.numberClickTotal = numberOfHits
+            aux.save()
+        else:
+            defeats = aux.numberDefeats
+            defeats =+ 1
+            aux.numberDefeats = defeats
+            aux.numberClickSucces = numberOfSuccessfulHits
+            aux.numberClickTotal = numberOfHits
+            aux.save()
+    else:
+        return render(request, "index.html")

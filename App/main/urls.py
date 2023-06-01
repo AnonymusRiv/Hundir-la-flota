@@ -8,7 +8,6 @@ urlpatterns = [
     path("SignUp/", register, name='register'),
     path("SignIn/", login_user, name='login_user'),
     path("SignOut/", logout_user, name='logout_user'),
-    path("http://localhost:8000/SignUp/", views.register, name = 'register'),
     path("Game/Help", views.home),
     path("Game/GameSelect", game, name='game'),
     path("Game/GameSelect/Error", views.error),

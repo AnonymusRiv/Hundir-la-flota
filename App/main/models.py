@@ -12,20 +12,14 @@ from django.contrib.auth.models import User
 #
 #    def __str__(self):
 #        return self.name
-#
-class Game(models.Model) :
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id = models.AutoField(primary_key=True)
-    numberClickSucces = models.IntegerField()
-    numberClickTotal = models.IntegerField()
-    numberWins = models.IntegerField()
-
-    def __str__(self):
-        return f"{self.id}, {self.user}, {self.numberClickSucces}, {self.numberClickTotal}, {self.numberWins}"
 
 class Estadistics(models.Model):
     id = models.AutoField(primary_key=True)
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default="")
+    numberClickSucces = models.IntegerField(default=0)
+    numberClickTotal = models.IntegerField(default=0)
+    numberWins = models.IntegerField(default=0)
+    numberDefeats = models.IntegerField(default=0)
+    
     def __str__(self):
-        return f"{self.id}, {self.game}"
+        return f"{self.id}"

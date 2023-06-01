@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export const PlayerTips = ({
   hitsbyPlayer,
@@ -10,35 +11,14 @@ export const PlayerTips = ({
   let numberOfSuccessfulHits = hitsbyPlayer.filter((hit) => hit.type === 'hit').length;
   let succesfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit').length;
 
-  const stadistics = async (event) => {
-    try {
-      const response = await fetch("/stadistics/", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(winner, numberOfHits, numberOfSuccessfulHits),
-      });
-      if (response.ok) {
-        const data = await response.json();
-      } else {
-        console.log('Error al verificar el inicio de sesión');
-      }
-    } catch (error) {
-      console.log('Error de red', error);
-    }
-  }
-
   let gameOverPanel = (
     <div>
-      <div className="tip-box-title">Game Over!</div>
+      <div className="tip-box-title">Fin del juego!</div>
       <p className="player-tip">
-        {winner === 'player' ? 'You win! 🎉' : 'You lose 😭. Better luck next time! '}
+        {winner === 'player' ? 'Has ganado! 🎉' : 'Has perdido 😭 Más suerte la próxima vez! '}
         
       </p>
-      <p className="restart" onClick={startAgain}>
-        Jugar otra vez?
-      </p>
+      <NavLink to="/Game/GameSelect"><button className='Dificil'>Volver a la pantalla de inicio</button></NavLink>
     </div>
   );
 
@@ -47,10 +27,10 @@ export const PlayerTips = ({
       <div className="tip-box-title">Estadísticas</div>
       <div id="firing-info">
         <ul>
-          <li>{numberOfSuccessfulHits} successful hits</li>
-          <li>{numberOfHits} hits</li>
+          <li>{numberOfSuccessfulHits} lanzamientos existosos</li>
+          <li>{numberOfHits} lanzamientos</li>
         </ul>
-        <p className="player-tip">The first to sink all 5 opponent ships wins.</p>
+        <p className="player-tip">El primero en hundir los 6 barcos del oponente ganará la partida</p>
         <p className="restart" onClick={startAgain}>
           Volver a jugar
         </p>
@@ -60,7 +40,7 @@ export const PlayerTips = ({
 
   return (
     <div id="player-tips">
-      {numberOfSuccessfulHits === 17 || succesfulComputerHits === 17
+      {numberOfSuccessfulHits === 15 || succesfulComputerHits === 15
         ? gameOverPanel
         : tipsPanel}
     </div>

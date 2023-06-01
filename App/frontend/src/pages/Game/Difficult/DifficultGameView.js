@@ -30,6 +30,12 @@ export const DifficultGameView = ({
   setComputerShips,
 }) => {
   return (
+    <>
+    <h1 className="games" align='center'>Modo Difícil 💀</h1>
+    <br></br>
+    <h3 className='election'>
+        En este modo de juego se mostrará un tablero de 15x15 en el que tendrás que adivinar la posición de los 6 barcos del oponente (ahora de menor dimensión).
+    </h3>
     <section id="game-screen">
       {gameState !== 'placement' ? (
         <PlayerTips
@@ -70,6 +76,7 @@ export const DifficultGameView = ({
         setComputerShips={setComputerShips}
       />
     </section>
+    </>
   );
 };
 

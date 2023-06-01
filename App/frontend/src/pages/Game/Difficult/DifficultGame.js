@@ -14,38 +14,38 @@ import {
 
 const AVAILABLE_SHIPS = [
   {
-    name: 'carrier3',
+    name: 'Tormenta de Acero',
     length: 3,
     placed: null,
   },
   {
-    name: 'carrier',
+    name: 'Silenciosa',
     length: 2,
     placed: null,
   },
   {
-    name: 'battleship',
+    name: 'La Pinta',
     length: 2,
     placed: null,
   },
   {
-    name: 'cruiser',
+    name: 'Lanza de Neptuno',
     length: 1,
     placed: null,
   },
   {
-    name: 'submarine',
+    name: 'Fénix Naval',
     length: 1,
     placed: null,
   },
   {
-    name: 'destroyer',
+    name: 'Titanio Azul',
     length: 1,
     placed: null,
   },
 ];
 
-export const Game = () => {
+export const DifficultGame = () => {
   const [gameState, setGameState] = useState('placement');
   const [winner, setWinner] = useState(null);
 
@@ -260,4 +260,4 @@ export const Game = () => {
   );
 };
 
-export default Game;
+export default DifficultGame;

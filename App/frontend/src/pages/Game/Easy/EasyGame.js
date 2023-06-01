@@ -45,7 +45,7 @@ const AVAILABLE_SHIPS = [
   },
 ];
 
-export const Game = () => {
+export const EasyGame = () => {
   const [gameState, setGameState] = useState('placement');
   const [winner, setWinner] = useState(null);
 
@@ -206,13 +206,13 @@ export const Game = () => {
     let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit')
       .length;
 
-    if (successfulComputerHits === 17 || successfulPlayerHits === 17) {
+    if (successfulComputerHits === 15 || successfulPlayerHits === 15) {
       setGameState('game-over');
 
-      if (successfulComputerHits === 17) {
+      if (successfulComputerHits === 15) {
         setWinner('computer');
       }
-      if (successfulPlayerHits === 17) {
+      if (successfulPlayerHits === 15) {
         setWinner('player');
       }
 
@@ -261,4 +261,4 @@ export const Game = () => {
   );
 };
 
-export default Game;
+export default EasyGame;

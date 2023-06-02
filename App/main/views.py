@@ -2,7 +2,6 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib import messages
 from .models import *
-from .querys import *
 import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
@@ -105,6 +104,8 @@ def delete(request):
     if request.method == 'POST':
         user = request.user
         if user.is_authenticated:
+            estadistics = Estadistics.objects.get(user=user)
+            estadistics.delete()
             user.delete()
             return JsonResponse({"valido": True})
         else:

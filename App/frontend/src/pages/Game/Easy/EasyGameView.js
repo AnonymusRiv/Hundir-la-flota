@@ -1,9 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { PlayerFleet } from '../PlayerFleet';
 import { PlayerBoard } from './EasyPlayerBoard';
 import { ComputerBoard } from './EasyComputerBoard';
-import { PlayerTips } from '../PlayerTips';
+import { EasyPlayerTips } from './EasyPlayerTips';
 
 export const EasyGameView = ({
   availableShips,
@@ -36,7 +37,7 @@ export const EasyGameView = ({
     </h3>
     <section id="game-screen">
       {gameState !== 'placement' ? (
-        <PlayerTips
+        <EasyPlayerTips
           gameState={gameState}
           hitsbyPlayer={hitsByPlayer}
           hitsByComputer={hitsByComputer}
@@ -73,6 +74,9 @@ export const EasyGameView = ({
         setComputerShips={setComputerShips}
       />
     </section>
+    <div align='center'>
+      <NavLink to="/Game/GameSelect"><button className='inicio'>Volver al inicio</button></NavLink>
+    </div>
     </>
   );
 };

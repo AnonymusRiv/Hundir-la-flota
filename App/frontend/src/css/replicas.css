@@ -52,7 +52,7 @@
   background-color: var(--oc-indigo-2);
 }
 
-/* Each ship name */
+/* Nombre de cada barco */
 
 .replica-title {
   font-size: 14px;
@@ -68,8 +68,6 @@
   background-color: var(--oc-yellow-4);
 }
 
-/* Firing info */
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -79,8 +77,6 @@ ul {
 li {
   margin: 5px;
 }
-
-/* TODO: FIX THIS SCREEN SO THINGS FIT NICELY!!!  */
 
 @media screen and (max-width: 768px) {
   #replica-ships {

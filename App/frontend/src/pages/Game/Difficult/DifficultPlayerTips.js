@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-export const PlayerTips = ({
+export const DifficultPlayerTips = ({
   hitsbyPlayer,
   hitsByComputer,
   startAgain,
@@ -22,6 +23,26 @@ export const PlayerTips = ({
       if (response.ok) {
         console.log('Estadísticas pasadas correctamente');
         window.location.href = '/Game/Profile';
+      } else {
+        console.log('Error al pasar las estadísticas');
+      }
+    } catch (error) {
+      console.log('Error de red', error);
+    }
+  }
+
+  const newGame = async () => {
+    try {
+      const response = await fetch("/newGame/", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
+      });
+      if (response.ok) {
+        console.log('Estadísticas pasadas correctamente');
+        window.location.href = '/Game/GameSelect';
       } else {
         console.log('Error al pasar las estadísticas');
       }
@@ -56,31 +77,27 @@ export const PlayerTips = ({
     checkLogin();
   }, []);
 
-
   let gameOverPanel = (
     <div>
-      <div className="tip-box-title">Game Over!</div>
-      <p className="player-tip">
-        {winner === 'player' ? 'You win! 🎉' : 'You lose 😭. Better luck next time! '}
+      <div className="tip-box-title">Fin del juego!</div>
+      <p className="player-tip" font-size={'20px'}>
+        {winner === 'player' ? 'Has ganado! 🎉' : 'Has perdido 😭 ¡Más suerte la próxima vez! '}
       </p>
-      <p className="restart" onClick={startAgain}>
-        Play again?
-      </p>
-      {isLogged ? (<button className='Dificil' onClick={stadistics}>Estadísticas</button>) : null}
+      {isLogged ? (<button className='Dificil' onClick={stadistics}>Estadísticas</button>) :
+      null }
     </div>
   );
 
   let tipsPanel = (
     <div>
-      <div className="tip-box-title">Stats</div>
+      <div className="tip-box-title">Estadísticas</div>
       <div id="firing-info">
         <ul>
-          <li>{numberOfSuccessfulHits} successful hits</li>
-          <li>{numberOfHits} hits</li>
+          <li>{numberOfSuccessfulHits} lanzamientos existosos</li>
+          <li>{numberOfHits} lanzamientos</li>
         </ul>
-        <p className="player-tip">The first to sink all 5 opponent ships wins.</p>
         <p className="restart" onClick={startAgain}>
-          Restart
+          Volver a jugar
         </p>
       </div>
     </div>
@@ -88,11 +105,11 @@ export const PlayerTips = ({
 
   return (
     <div id="player-tips">
-      {numberOfSuccessfulHits === 15 || succesfulComputerHits === 15
+      {numberOfSuccessfulHits === 10 || succesfulComputerHits === 10
         ? gameOverPanel
         : tipsPanel}
     </div>
   );
 };
 
-export default PlayerTips;
+export default DifficultPlayerTips;

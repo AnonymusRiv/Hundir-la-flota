@@ -10,7 +10,7 @@ export const SignIn = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("", {
+      const response = await fetch("/SignIn/", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -137,7 +137,7 @@ function Profile() {
               <h3>A continuación, se muestran las estadísticas de juego:</h3>
               <UnorderedList>
                 <ListItem className="statistics">Victorias: {wins}</ListItem>
-                <ListItem className="statistics">Derrotas derrotas: {defeats}</ListItem>
+                <ListItem className="statistics">Derrotas: {defeats}</ListItem>
                 <ListItem className="statistics">Número de aciertos: {numberOfSuccessfulHits}</ListItem>
                 <ListItem className="statistics">Número de click totales: {numberOfHits}</ListItem>
               </UnorderedList>

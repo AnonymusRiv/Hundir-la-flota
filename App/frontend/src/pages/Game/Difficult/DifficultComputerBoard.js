@@ -9,22 +9,22 @@ import {
 } from './layoutHelpersDifficultGame';
 
 export const ComputerBoard = ({
-  computerShips = [],
+  computerShips,
   gameState,
-  hitsByPlayer = [],
+  hitsByPlayer,
   setHitsByPlayer,
   handleComputerTurn,
   checkIfGameOver,
   setComputerShips,
 }) => {
-  // Ships on an empty layout
+  // Colocación de los barcos en un tablero vacío
   let compLayout = computerShips.reduce(
     (prevLayout, currentShip) =>
       putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship),
     generateEmptyLayout()
   );
 
-  //  Add hits dealt by player
+  // Colocación de los disparos en el tablero
   compLayout = hitsByPlayer.reduce(
     (prevLayout, currentHit) =>
       putEntityInLayout(prevLayout, currentHit, currentHit.type),
@@ -39,7 +39,7 @@ export const ComputerBoard = ({
     compLayout
   );
 
-  // Check what's at the square and decide what next
+  // Se comprueba si el disparo ha sido acertado o no
   const fireTorpedo = (index) => {
     if (compLayout[index] === 'ship') {
       const newHits = [
@@ -76,7 +76,6 @@ export const ComputerBoard = ({
   let compSquares = compLayout.map((square, index) => {
     return (
       <div
-        // Only display square if it's a hit, miss, or sunk ship
         className={
           stateToClass[square] === 'hit' ||
           stateToClass[square] === 'miss' ||
@@ -103,7 +102,7 @@ export const ComputerBoard = ({
   return (
     <div>
       <h3 className="tip-box-title">Oponente</h3>
-      <div className="boardD">{compSquares}</div>
+      <div className="board-difficult">{compSquares}</div>
     </div>
   );
 };

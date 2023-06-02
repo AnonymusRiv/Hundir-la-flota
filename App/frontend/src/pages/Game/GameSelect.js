@@ -1,5 +1,3 @@
-
-
 import React, {Component, useState, useEffect} from 'react';
 import { Card, CardHeader, CardBody, CardFooter, Heading, Image, Stack, SimpleGrid, Button} from '@chakra-ui/react'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'

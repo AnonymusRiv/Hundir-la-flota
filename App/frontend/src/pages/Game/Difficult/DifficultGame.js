@@ -14,12 +14,12 @@ import {
 
 const AVAILABLE_SHIPS = [
   {
-    name: 'Tormenta de Acero',
+    name: 'Fénix Naval',
     length: 3,
     placed: null,
   },
   {
-    name: 'Silenciosa',
+    name: 'Devastador de Mares',
     length: 2,
     placed: null,
   },
@@ -29,17 +29,17 @@ const AVAILABLE_SHIPS = [
     placed: null,
   },
   {
-    name: 'Lanza de Neptuno',
-    length: 1,
-    placed: null,
-  },
-  {
-    name: 'Fénix Naval',
-    length: 1,
-    placed: null,
-  },
-  {
     name: 'Titanio Azul',
+    length: 1,
+    placed: null,
+  },
+  {
+    name: 'Vendetta',
+    length: 1,
+    placed: null,
+  },
+  {
+    name: 'Silenciosa',
     length: 1,
     placed: null,
   },
@@ -56,7 +56,7 @@ export const DifficultGame = () => {
   const [hitsByPlayer, setHitsByPlayer] = useState([]);
   const [hitsByComputer, setHitsByComputer] = useState([]);
 
-  // *** PLAYER ***
+  // JUGADOR
   const selectShip = (shipName) => {
     let shipIdx = availableShips.findIndex((ship) => ship.name === shipName);
     const shipToPlace = availableShips[shipIdx];
@@ -84,8 +84,9 @@ export const DifficultGame = () => {
     setCurrentlyPlacing(null);
   };
 
+  //Se gira al pulsar el botón central del ratón
   const rotateShip = (event) => {
-    if (currentlyPlacing != null && event.button === 2) {
+    if (currentlyPlacing != null && event.button === 1) {
       setCurrentlyPlacing({
         ...currentlyPlacing,
         orientation:
@@ -105,7 +106,7 @@ export const DifficultGame = () => {
     );
   };
 
-  // *** COMPUTER ***
+  // OPONENTE
   const generateComputerShips = () => {
     let placedComputerShips = placeAllComputerShips(AVAILABLE_SHIPS.slice());
     setComputerShips(placedComputerShips);
@@ -133,13 +134,11 @@ export const DifficultGame = () => {
       ];
     }
     const sunkShips = updateSunkShips(computerHits, placedShips);
-    const sunkShipsAfter = sunkShips.filter((ship) => ship.sunk).length;
-    const sunkShipsBefore = placedShips.filter((ship) => ship.sunk).length;
     setPlacedShips(sunkShips);
     setHitsByComputer(computerHits);
   };
 
-  // Change to computer turn, check if game over and stop if yes; if not fire into an eligible square
+  // Se cambia el turno y se comprueba el estado de la partida
   const handleComputerTurn = () => {
     changeTurn();
 
@@ -147,7 +146,6 @@ export const DifficultGame = () => {
       return;
     }
 
-    // Recreate layout to get eligible squares
     let layout = placedShips.reduce(
       (prevLayout, currentShip) =>
         putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship),
@@ -197,21 +195,21 @@ export const DifficultGame = () => {
     }, 300);
   };
 
-  // *** END GAME ***
+  // Fin del juego
 
-  // Check if either player or computer ended the game
+  // Se comprueba si alguno ha terminado el juego
   const checkIfGameOver = () => {
     let successfulPlayerHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
     let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit')
       .length;
 
-    if (successfulComputerHits === 17 || successfulPlayerHits === 17) {
+    if (successfulComputerHits === 10 || successfulPlayerHits === 10) {
       setGameState('game-over');
 
-      if (successfulComputerHits === 17) {
+      if (successfulComputerHits === 10) {
         setWinner('computer');
       }
-      if (successfulPlayerHits === 17) {
+      if (successfulPlayerHits === 10) {
         setWinner('player');
       }
 

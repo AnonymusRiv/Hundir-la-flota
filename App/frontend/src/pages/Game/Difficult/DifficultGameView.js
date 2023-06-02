@@ -1,11 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { PlayerFleet } from '../PlayerFleet';
 import { PlayerBoard } from './DifficultPlayerBoard';
 import { ComputerBoard } from './DifficultComputerBoard';
-import { PlayerTips } from '../PlayerTips';
-
-const tipo = 'difficult';
+import { DifficultPlayerTips } from './DifficultPlayerTips';
 
 export const DifficultGameView = ({
   availableShips,
@@ -34,11 +33,11 @@ export const DifficultGameView = ({
     <h1 className="games" align='center'>Modo Difícil 💀</h1>
     <br></br>
     <h3 className='election'>
-        En este modo de juego se mostrará un tablero de 15x15 en el que tendrás que adivinar la posición de los 6 barcos del oponente (ahora de menor dimensión).
+        En este modo de juego se mostrará un tablero de 15x15 en el que tendrás que adivinar la posición de los 6 barcos del oponente (ahora de menor tamaño).
     </h3>
     <section id="game-screen">
       {gameState !== 'placement' ? (
-        <PlayerTips
+        <DifficultPlayerTips
           gameState={gameState}
           hitsbyPlayer={hitsByPlayer}
           hitsByComputer={hitsByComputer}
@@ -62,7 +61,6 @@ export const DifficultGameView = ({
         placeShip={placeShip}
         placedShips={placedShips}
         hitsByComputer={hitsByComputer}
-        tipo={tipo}
       />
       <ComputerBoard
         computerShips={computerShips}
@@ -76,6 +74,9 @@ export const DifficultGameView = ({
         setComputerShips={setComputerShips}
       />
     </section>
+    <div align='center'>
+      <NavLink to="/Game/GameSelect"><button className='inicio'>Volver al inicio</button></NavLink>
+    </div>
     </>
   );
 };

@@ -10,7 +10,6 @@ export const PlayerFleet = ({
 }) => {
   let shipsLeft = availableShips.map((ship) => ship.name);
 
-  // For every ship still available, return a Replica Box with the ship's name and as many squares as its length
   let shipReplicaBoxes = shipsLeft.map((shipName) => (
     <ReplicaBox
       selectShip={selectShip}
@@ -33,7 +32,7 @@ export const PlayerFleet = ({
 
   let playButton = (
     <div id="play-ready">
-      <p className="player-tip">Barcos en formación  🚢 Comienza la batalla  💣</p>
+      <p className="player-tip">Barcos en formación  🚢 ¡Comienza la batalla!  💣</p>
       <button className='Dificil' onClick={startTurn}>
         Comenzar
       </button>

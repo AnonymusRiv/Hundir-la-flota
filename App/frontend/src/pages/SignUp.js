@@ -40,6 +40,8 @@ export const SignUp = () => {
     }
   };
 
+  const isPasswordValid = password.length >= 8;
+
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={handleSubmit}>
@@ -69,7 +71,7 @@ export const SignUp = () => {
             <PasswordInput setPassword={setPassword} />
           </div>
           <div>
-            <button type="submit" className="sign">
+            <button type="submit" className="sign" disabled={!isPasswordValid}>
               Regístrate
             </button>
           </div>

@@ -1,6 +1,6 @@
 @import './open-color.css';
 
-/* BOARD  */
+/* Tablero fácil  */
 
 .board {
   width: 400px;
@@ -9,24 +9,6 @@
   margin: 1em 2em 2em 1em;
   display: flex;
   flex-wrap: wrap;
-}
-
-.boardD {
-  width: 750px;
-  height: 750px;
-  border: 2px solid var(--oc-gray-4);
-  margin: 1em 2em 2em 1em;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.boardD div {
-  width: 50px;
-  height: 50px;
-  box-sizing: border-box;
-  background: var(--oc-gray-1);
-  border: 1px solid var(--oc-gray-2);
-  transition: background-color 100ms ease-in-out;
 }
 
 .board div {
@@ -38,7 +20,29 @@
   transition: background-color 100ms ease-in-out;
 }
 
-/* Option 1 */
+/* Tablero difícil  */
+
+.board-difficult {
+  width: 600px;
+  height: 600px;
+  border: 2px solid var(--oc-gray-4);
+  margin: 1em 1em 1em 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board-difficult div {
+  width: 6.6666667%;
+  height: 6.6666667%;
+  box-sizing: border-box;
+  background: var(--oc-gray-1);
+  border: 1px solid var(--oc-gray-2);
+  transition: background-color 100ms ease-in-out;
+}
+
+
+
+/* Opcion 1 */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -47,7 +51,7 @@
     transform: rotate(360deg);
   }
 }
-/* Option 2 */
+/* Opcion 2 */
 @keyframes shake {
   from {
     transform: translate(30%, 17%);
@@ -58,9 +62,9 @@
   }
 }
 
-/* SQUARE COLORS */
+/* Colores de las celdas */
 
-/* Empty */
+/* Vacía */
 .board .empty {
   background-color: var(--oc-gray-1);
 }
@@ -68,8 +72,7 @@
   background-color: var(--oc-yellow-2);
 }
 
-/* Ship */
-
+/* Con barco */
 .board .ship {
   background-color: var(--oc-indigo-5);
   border: 1px solid var(--oc-indigo-6);
@@ -79,31 +82,62 @@
   background-color: var(--oc-indigo-9);
 }
 
-/* Hit  */
-
+/* Tocado */
 .board .hit {
   background-color: var(--oc-red-8);
   border: 1px solid var(--oc-red-9);
 }
 
-/* Miss */
-
+/* Agua */
 .board .miss {
   background-color: var(--oc-gray-4);
   border: 1px solid var(--oc-gray-2);
 }
 
-/* Sunk ship */
-
+/* Barco hundido */
 .board .ship-sunk {
   background-color: var(--oc-gray-9);
   border: 1px solid var(--oc-gray-8);
   animation: shake 50ms 6 alternate backwards;
 }
 
-/* Forbidden square  */
-
 .board .forbidden {
+  background-color: var(--oc-red-2);
+  border: 1px solid var(--oc-red-3);
+}
+
+/* Colores de las celdas adaptadas al tablero difícil */
+
+/* Con barco */
+.board-difficult .ship {
+  background-color: var(--oc-indigo-5);
+  border: 1px solid var(--oc-indigo-6);
+}
+
+.board-difficult .ship:hover {
+  background-color: var(--oc-indigo-9);
+}
+
+/* Tocado  */
+.board-difficult .hit {
+  background-color: var(--oc-red-8);
+  border: 1px solid var(--oc-red-9);
+}
+
+/* Agua */
+.board-difficult .miss {
+  background-color: var(--oc-gray-4);
+  border: 1px solid var(--oc-gray-2);
+}
+
+/* Hundido */
+.board-difficult .ship-sunk {
+  background-color: var(--oc-gray-9);
+  border: 1px solid var(--oc-gray-8);
+  animation: shake 50ms 6 alternate backwards;
+}
+
+.board-difficult .forbidden {
   background-color: var(--oc-red-2);
   border: 1px solid var(--oc-red-3);
 }

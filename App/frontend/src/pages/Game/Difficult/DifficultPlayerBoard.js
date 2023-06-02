@@ -17,14 +17,14 @@ export const PlayerBoard = ({
   placedShips,
   hitsByComputer,
 }) => {
-  // Player ships on empty layout
+  // Se genera el layout del tablero vacío
   let layout = placedShips.reduce(
     (prevLayout, currentShip) =>
       putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship),
     generateEmptyLayout()
   );
 
-  // Hits by computer
+  // Tocado por el ordenador
   layout = hitsByComputer.reduce(
     (prevLayout, currentHit) =>
       putEntityInLayout(prevLayout, currentHit, currentHit.type),
@@ -81,7 +81,7 @@ export const PlayerBoard = ({
   return (
     <div>
       <div className="tip-box-title">Tu tablero</div>
-      <div className="boardD">{squares}</div>
+      <div className="board-difficult">{squares}</div>
     </div>
   );
 };

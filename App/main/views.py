@@ -72,9 +72,6 @@ def game(request):
     return render(request, "index.html")
 
 
-def error(request):
-    return render(request, "index.html")
-
 def showProfile(request):
     if request.method == 'POST':
         user = request.user
@@ -174,4 +171,10 @@ def DificultGame(request):
     return render(request, "index.html")
 
 def help(request):
+    return render(request, "index.html")
+
+def newGame(request):
+    return render(request, "index.html")
+
+def error(request):
     return render(request, "index.html")

@@ -56,7 +56,7 @@ export const EasyGame = () => {
   const [hitsByPlayer, setHitsByPlayer] = useState([]);
   const [hitsByComputer, setHitsByComputer] = useState([]);
 
-  // *** PLAYER ***
+  // JUGADOR
   const selectShip = (shipName) => {
     let shipIdx = availableShips.findIndex((ship) => ship.name === shipName);
     const shipToPlace = availableShips[shipIdx];
@@ -84,7 +84,7 @@ export const EasyGame = () => {
     setCurrentlyPlacing(null);
   };
 
-  //Se tiene que girar al pulsar el espacio
+  //Se tiene que girar al pulsar el botón central del ratón
   const rotateShip = (event) => {
     if (currentlyPlacing != null && event.button === 1) {
       setCurrentlyPlacing({
@@ -106,7 +106,7 @@ export const EasyGame = () => {
     );
   };
 
-  // *** COMPUTER ***
+  // OPONENTE
   const generateComputerShips = () => {
     let placedComputerShips = placeAllComputerShips(AVAILABLE_SHIPS.slice());
     setComputerShips(placedComputerShips);
@@ -134,13 +134,11 @@ export const EasyGame = () => {
       ];
     }
     const sunkShips = updateSunkShips(computerHits, placedShips);
-    const sunkShipsAfter = sunkShips.filter((ship) => ship.sunk).length;
-    const sunkShipsBefore = placedShips.filter((ship) => ship.sunk).length;
     setPlacedShips(sunkShips);
     setHitsByComputer(computerHits);
   };
 
-  // Change to computer turn, check if game over and stop if yes; if not fire into an eligible square
+  // Se cambia el turno y se comprueba el estado de la partida
   const handleComputerTurn = () => {
     changeTurn();
 
@@ -198,9 +196,9 @@ export const EasyGame = () => {
     }, 300);
   };
 
-  // *** END GAME ***
+  // Fin del juego
 
-  // Check if either player or computer ended the game
+  // Se comprueba si alguno ha terminado el juego
   const checkIfGameOver = () => {
     let successfulPlayerHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
     let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit')

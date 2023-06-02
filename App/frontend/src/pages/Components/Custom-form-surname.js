@@ -10,12 +10,7 @@ function CustomFormsurName({ setsurName }) {
     setsurName(e.target.value);
   };
 
-  const validateSurname = () => {
-    const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-    return regex.test(input);
-  };
-
-  const isError = input === '' || !validateSurname();
+  const isError = input === '';
 
   return (
     <FormControl isInvalid={isError}>
@@ -23,9 +18,6 @@ function CustomFormsurName({ setsurName }) {
       {!isError ? null : (
         <FormErrorMessage>Se requiere un apellido de usuario</FormErrorMessage>
       )}
-      {!isError ? (
-        <FormHelperText>El nombre no debe contener números ni caracteres especiales.</FormHelperText>
-      ) : null}
     </FormControl>
   );
 }

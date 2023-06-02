@@ -15,17 +15,15 @@ export default function PasswordInput({ setPassword }) {
     return regex.test(input);
   };
 
-  const isError = input === '' || !validatePassword();
+  const isError = input === '';
+  const isLenghtError = !validatePassword();
 
   return (
     <FormControl isInvalid={isError}>
       <Input name="password" type="password" value={input} onChange={handleInputChange} />
-      {!isError ? null : (
-        <FormErrorMessage>Se requiere una contraseña</FormErrorMessage>
+      {!isLenghtError ? <FormHelperText>La contraseña debe de contener  al menos 8 caracteres, una máyuscula, una minúscula, un dígito y un carácter especial</FormHelperText> :(
+        <FormErrorMessage>Se requiere contraseña</FormErrorMessage>
       )}
-      {!isError ? (
-        <FormHelperText>La contraseña debe de contener  al menos 8 caracteres, una máyuscula, una minúscula, un dígito y un carácter especial.</FormHelperText>
-      ) : null}
     </FormControl>
   );
 }

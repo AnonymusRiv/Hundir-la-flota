@@ -6,11 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Lexend+Tera&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-/* NEW FONTS */
+/* Fuentes */
 
 @import url('https://fonts.googleapis.com/css2?family=Asul&family=Chivo:wght@300;400;700;900&family=Libre+Franklin&display=swap');
-/* font-family: 'Asul', sans-serif;
-font-family: 'Chivo', sans-serif; */
 
 :root {
   --regular: 'Libre Franklin', sans-serif;
@@ -57,7 +55,7 @@ main {
   }
 }
 
-/* Box containing ships and tips */
+/* Tabla que contiene los barcos y su info */
 #available-ships,
 #player-tips {
   width: 200px;
@@ -83,6 +81,7 @@ main {
 #firing-info {
   margin-top: var(--small-space);
   font-family: var(--regular);
+  font-size: large;
   text-transform: none;
   color: var(--oc-gray-7);
 }
@@ -91,7 +90,7 @@ main {
   color: var(--oc-red-7);
   font-family: var(--regular);
   cursor: pointer;
-  font-size: 12px;
+  font-size: 16px;
   text-decoration: underline;
   margin: var(--small-space);
 }
@@ -100,9 +99,8 @@ main {
   font-size: 30px;
 }
 
-/* HEADER AND SUBTITLE */
+/* Header y subtítulos */
 
-/* Entire header */
 header {
   text-align: center;
 }
@@ -146,8 +144,6 @@ h1 {
   text-transform: uppercase;
 }
 
-/* Headings used in board and tip box */
-
 h2 {
   color: var(--oc-black-rgb);
   font-family: var(--headlines);
@@ -159,16 +155,13 @@ h3{
   font-style: bold;
 }
 
-
-/* Regular text used in subtitle and tips */
-
 p {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
 
-/* BUTTONS */
+/* Botones */
 
 button {
   width: 170px;
@@ -212,6 +205,14 @@ button {
   color: #ffffff;
 }
 
+.inicio {
+  background-color: var(--oc-indigo-5);
+  border: 1px solid var(--oc-indigo-6);
+  color: #ffffff;
+  font-family: 'Libre Franklin', sans-serif;
+  font-style: bold;
+}
+
 .statistics{
   color: var(--oc-black-rgb);
   font-family: 'Libre Franklin', sans-serif;
@@ -251,7 +252,18 @@ button:active {
   display: flex;
 }
 
-/* FOOTER */
+.error{
+  background-color: var(--oc-blue-4);
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+/* Footer */
 
 footer,
 footer a {
@@ -349,25 +361,4 @@ label {
   width: 100%;
   height: 57.3%;
   border-radius: 50%;
-}
-
-.container {
-  width: 400px;
-  height: 400px;
-  background-color: var(--oc-indigo-4);
-  margin: 0;
-  border-radius: 2px;
-}
-
-.container2{
-  width: 400px;
-  height: 400px;
-  margin: 0;
-  border-radius: 2px;
-}
-
-.containers {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
 }
